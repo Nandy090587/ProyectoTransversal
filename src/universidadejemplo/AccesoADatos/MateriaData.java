@@ -1,17 +1,15 @@
 
 package universidadejemplo.AccesoADatos;
 
-import java.awt.List;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import universidadejemplo.Entidades.Alumno;
 import universidadejemplo.Entidades.Materia;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class MateriaData {
@@ -101,16 +99,16 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null,"Error al conectar con tabla materia"+ex.getMessage());
         }
     }
-//    public List<Materia> ListarMaterias(){
-//        
-//        List<Materia> materiaList = new ArrayList<>();
-//       
-//        
-//        
-//        return materiaList;
-//    
-//    
-//    }
+    public List<Materia> ListarMaterias(){
+        
+        List<Materia> materiaList = new ArrayList<>();
+       
+        
+        
+        return materiaList;
+    
+    
+    }
 
             
 }
