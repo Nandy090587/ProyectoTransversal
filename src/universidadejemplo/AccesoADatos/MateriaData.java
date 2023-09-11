@@ -25,9 +25,9 @@ public class MateriaData {
         try {
             ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
            
-        ps.setString(1, mat.getNombre());
-        ps.setInt(2,mat.getAnio());
-        ps.setBoolean(3, mat.isEstado());
+            ps.setString(1, mat.getNombre());
+            ps.setInt(2,mat.getAnio());
+            ps.setBoolean(3, mat.isEstado());
        
             
         ResultSet rs=ps.getGeneratedKeys();
@@ -62,13 +62,9 @@ public class MateriaData {
                 JOptionPane.showMessageDialog(null,"No exite esa materia");
             }
             
-        } catch (SQLException ex) {
-           
+        } catch (SQLException ex) {         
             
             JOptionPane.showMessageDialog(null, "Error al buscar la materia "+ex.getMessage());
-
-
-
 
         }
         return materia;   
@@ -94,7 +90,6 @@ public class MateriaData {
             }
             
             
-            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error al conectar con tabla materia"+ex.getMessage());
         }
@@ -103,8 +98,7 @@ public class MateriaData {
         
         List<Materia> materiaList = new ArrayList<>();
        
-        
-        
+       
         return materiaList;
     
     
