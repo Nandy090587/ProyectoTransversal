@@ -100,6 +100,8 @@ public class MateriaData {
         }
     }
     
-    list<Materia> ListarMaterias
+    //list <Materia> ListarMaterias(){
+        
+    
             
 }
