@@ -8,7 +8,6 @@ package universidadejemplo.AccesoADatos;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.swing.JOptionPane;
 import universidadejemplo.Entidades.Alumno;
 
@@ -117,8 +116,16 @@ public class AlumnoData {
             ResultSet rs=ps.executeQuery();
             if (rs.next()) {
                 alumno=new Alumno();
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setApellido(rs.getString ("Apellido"));
+                alumno.setNombre(rs.getString ("nombre"));;
+                alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setActivo(true);
                 
                 
+            }else{
+                JOptionPane.showMessageDialog(null,"No exite ese alumno");
             }
             
         } catch (SQLException ex) {
