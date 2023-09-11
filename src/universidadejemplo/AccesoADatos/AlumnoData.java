@@ -124,12 +124,13 @@ public class AlumnoData {
         } catch (SQLException ex) {
            
             
-            JOptionPane.showMessageDialog(null, "Erro al buscar Alumno "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al buscar Alumno "+ex.getMessage());
 
 
 
 
         }
+        return alumno;
         
         
         
