@@ -101,7 +101,6 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null,"Error al conectar con tabla materia"+ex.getMessage());
         }
     }
-    
 //    public List<Materia> ListarMaterias(){
 //        
 //        List<Materia> materiaList = new ArrayList<>();
@@ -112,5 +111,6 @@ public class MateriaData {
 //    
 //    
 //    }
+
             
 }
