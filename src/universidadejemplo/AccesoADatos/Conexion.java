@@ -4,14 +4,12 @@ package universidadejemplo.AccesoADatos;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
 public class Conexion {
     private static final String URL="jdbc:mariadb://localhost/";
-    private static final String DB="univercidadejemplo";
+    private static final String DB="universidadejemplo";
     private static final String USUARIO="root";
     private static final String PASSWORD="";
     private static Connection connection;
