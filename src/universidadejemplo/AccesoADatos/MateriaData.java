@@ -96,9 +96,33 @@ public class MateriaData {
     }
     public List<Materia> ListarMaterias(){
         
-        List<Materia> materiaList = new ArrayList<>();
-       
-       
+        ArrayList<Materia> materiaList = new ArrayList<>();
+        
+            String sql="SELECT * FROM materia WHERE estado=1";
+                
+        try {
+            
+            PreparedStatement ps= con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                
+                Materia materia = new Materia();
+                materia.setIdMateria(rs.getInt("IdMateria"));
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnio(rs.getInt("año"));
+                materia.setEstado(true);
+                
+                materiaList.add(materia);
+                
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null,"Error al conectar con tabla materia"+ex.getMessage());
+        }
+          
         return materiaList;
     
     
