@@ -1,21 +1,20 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
 package universidadejemplo;
 
-import java.sql.Connection;
-import universidadejemplo.AccesoADatos.AlumnoData;
-import universidadejemplo.AccesoADatos.Conexion;
-import universidadejemplo.AccesoADatos.MateriaData;
-import universidadejemplo.Entidades.Alumno;
+/**
+ *
+ * @author ARcade
+ */
+public class Universidadejemplo {
 
-
-
-
-public class UniversidadEjemplo {
-   
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
-       Connection con= Conexion.getConexion();
-        AlumnoData alu=new AlumnoData();
-        Alumno alumnoEncontrado=alu.buscarAlumno(4);
-        MateriaData mat=new MateriaData();
-    }    
+        // TODO code application logic here
+    }
+    
 }

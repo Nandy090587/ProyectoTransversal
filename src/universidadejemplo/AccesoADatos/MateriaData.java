@@ -1,12 +1,14 @@
 
 package universidadejemplo.AccesoADatos;
 
+import java.awt.List;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import universidadejemplo.Entidades.Alumno;
 import universidadejemplo.Entidades.Materia;
@@ -100,6 +102,15 @@ public class MateriaData {
         }
     }
     
-    list<Materia> ListarMaterias
+//    public List<Materia> ListarMaterias(){
+//        
+//        List<Materia> materiaList = new ArrayList<>();
+//       
+//        
+//        
+//        return materiaList;
+//    
+//    
+//    }
             
 }
