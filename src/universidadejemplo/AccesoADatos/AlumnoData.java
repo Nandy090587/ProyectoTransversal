@@ -6,6 +6,8 @@
 package universidadejemplo.AccesoADatos;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 import universidadejemplo.Entidades.Alumno;
@@ -82,6 +84,55 @@ public class AlumnoData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error "+ex.getMessage());
         }
+        
+        
+    }
+    
+    public void eliminarAlumno(int id){
+        String sql="UPDate alumno SET estado = 0 WHERE idAlumno = ?";
+        
+        
+        try {
+            PreparedStatement ps =con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int exito=ps.executeUpdate();
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Error al Eliminar la tabla"+ex.getMessage());
+
+
+
+        }
+        
+    }
+    
+    public Alumno buscarAlumno(int id){
+        
+        String sql="SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 0";
+        Alumno alumno=null;
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()) {
+                alumno=new Alumno();
+                
+                
+            }
+            
+        } catch (SQLException ex) {
+           
+            
+            JOptionPane.showMessageDialog(null, "Erro al buscar Alumno "+ex.getMessage());
+
+
+
+
+        }
+        
+        
+        
         
         
     }
