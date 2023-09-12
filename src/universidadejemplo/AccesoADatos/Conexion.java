@@ -3,6 +3,7 @@ package universidadejemplo.AccesoADatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -44,5 +45,9 @@ public class Conexion {
         return connection;
     
     }  
+
+    PreparedStatement prepareStatement(String sql, int RETURN_GENERATED_KEYS) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
