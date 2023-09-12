@@ -45,6 +45,7 @@ public class InscripcionData {
             JOptionPane.showMessageDialog(null, "Error  al acceder a la tabla inscripcion "+ex.getMessage());
         } 
     }
+    
   public List<Inscripcion> ObtenerInscripciones(){
         
         ArrayList<Inscripcion> inscripcionList = new ArrayList<>();
@@ -76,8 +77,14 @@ public class InscripcionData {
         }
           
         return inscripcionList;
-    
-    
     }
+  
+  public List<Inscripcion>ObternerInscripcionesPorAlumno(int id){
+     
+      ArrayList<Inscripcion> inscripcionList = new ArrayList<>();
+        
+            String sql="SELECT * FROM inscripcion WHERE 1";
+                 
+  }    
   
 }
