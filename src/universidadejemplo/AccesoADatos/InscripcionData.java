@@ -10,7 +10,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import universidadejemplo.Entidades.Inscripcion;
 
-
 public class InscripcionData {
     
     private Conexion con;
@@ -26,6 +25,7 @@ public class InscripcionData {
         PreparedStatement ps;
         
         try {
+            
             ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setDouble(1, ins.getNota());
@@ -46,12 +46,13 @@ public class InscripcionData {
 
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(null, "Error  al acceder a la tabla inscripcion "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error  al acceder a la tabla inscripcion "
+            +ex.getMessage());
         
         } 
     }
     
-  public List<Inscripcion> ObtenerInscripciones(){
+    public List<Inscripcion> ObtenerInscripciones(){
         
         ArrayList<Inscripcion> inscripcionList = new ArrayList<>();
         
