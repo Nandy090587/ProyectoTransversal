@@ -122,6 +122,7 @@ public class AlumnoData {
             ResultSet rs=ps.executeQuery();
             
             if (rs.next()) {
+                
                 alumno=new Alumno();
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
@@ -130,7 +131,6 @@ public class AlumnoData {
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setActivo(true);
                 
-                
             }else{
                 
                 JOptionPane.showMessageDialog(null,"No exite ese alumno");
@@ -138,12 +138,8 @@ public class AlumnoData {
             }
             
         } catch (SQLException ex) {
-           
             
             JOptionPane.showMessageDialog(null, "Error al buscar Alumno "+ex.getMessage());
-
-
-
 
         }
         return alumno;   
