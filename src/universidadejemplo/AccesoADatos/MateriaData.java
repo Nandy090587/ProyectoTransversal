@@ -45,13 +45,18 @@ public class MateriaData {
     } 
     
     public Materia buscarMateria(int id) {
+        
         String sql="SELECT nombre, año, estado, FROM materia WHERE idMateria = ? AND estado = 0";
         Materia materia=null;
+        
         try {
+            
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs=ps.executeQuery();
+            
             if (rs.next()) {
+                
                 materia=new Materia();
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("año"));
@@ -59,7 +64,9 @@ public class MateriaData {
                 materia.setEstado(true);
                 
             }else{
+                
                 JOptionPane.showMessageDialog(null,"No exite esa materia");
+            
             }
             
         } catch (SQLException ex) {         
@@ -67,17 +74,18 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null, "Error al buscar la materia "+ex.getMessage());
 
         }
+        
         return materia;   
         
     } 
     
     public void modificarMateria(Materia materia){
         
-        String sql="UPDATE materia SET nombre= ?, año= ?, estado= ? "
-                +"WHERE idMateria=?";
+        String sql="UPDATE materia SET nombre= ?, año= ?, estado= ? WHERE idMateria=?";
                 
         
         try {
+            
             PreparedStatement ps= con.prepareStatement(sql);
             
             ps.setString(1, materia.getNombre());
@@ -85,15 +93,21 @@ public class MateriaData {
             ps.setBoolean(3,materia.isEstado());
             
             int exito= ps.executeUpdate();
+            
             if (exito==1) {
+                
                 JOptionPane.showMessageDialog(null, "Materia Modificada");
+            
             }
             
             
         } catch (SQLException ex) {
+            
             JOptionPane.showMessageDialog(null,"Error al conectar con tabla materia"+ex.getMessage());
+        
         }
     }
+    
     public List<Materia> ListarMaterias(){
         
         ArrayList<Materia> materiaList = new ArrayList<>();
