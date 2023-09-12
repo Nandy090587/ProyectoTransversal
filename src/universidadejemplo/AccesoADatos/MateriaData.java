@@ -2,14 +2,14 @@
 package universidadejemplo.AccesoADatos;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import universidadejemplo.Entidades.Alumno;
 import universidadejemplo.Entidades.Materia;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class MateriaData {
@@ -25,9 +25,9 @@ public class MateriaData {
         try {
             ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
            
-        ps.setString(1, mat.getNombre());
-        ps.setInt(2,mat.getAnio());
-        ps.setBoolean(3, mat.isEstado());
+            ps.setString(1, mat.getNombre());
+            ps.setInt(2,mat.getAnio());
+            ps.setBoolean(3, mat.isEstado());
        
             
         ResultSet rs=ps.getGeneratedKeys();
@@ -62,13 +62,9 @@ public class MateriaData {
                 JOptionPane.showMessageDialog(null,"No exite esa materia");
             }
             
-        } catch (SQLException ex) {
-           
+        } catch (SQLException ex) {         
             
             JOptionPane.showMessageDialog(null, "Error al buscar la materia "+ex.getMessage());
-
-
-
 
         }
         return materia;   
@@ -94,18 +90,43 @@ public class MateriaData {
             }
             
             
-            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error al conectar con tabla materia"+ex.getMessage());
         }
     }
-    
-
-    //list<Materia> ListarMaterias
-
-    //list <Materia> ListarMaterias(){
+    public List<Materia> ListarMaterias(){
         
+        ArrayList<Materia> materiaList = new ArrayList<>();
+        
+            String sql="SELECT * FROM materia WHERE estado=1";
+                
+        try {
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                
+                Materia materia = new Materia();
+                materia.setIdMateria(rs.getInt("IdMateria"));
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnio(rs.getInt("año"));
+                materia.setEstado(true);
+                
+                materiaList.add(materia);
+                
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null,"Error al conectar con tabla materia"+ex.getMessage());
+        }
+          
+        return materiaList;
     
+    
+    }
 
             
 }
