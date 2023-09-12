@@ -55,6 +55,9 @@ public class CargarNotas extends javax.swing.JInternalFrame {
             }
         ));
         jScrollPane1.setViewportView(jtAlumnoNota);
+        if (jtAlumnoNota.getColumnModel().getColumnCount() > 0) {
+            jtAlumnoNota.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jButton1.setText("Guardar");
 
