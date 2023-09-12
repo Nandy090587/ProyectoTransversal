@@ -13,10 +13,10 @@ import java.util.ArrayList;
 
 
 public class MateriaData {
-    private Connection con=null;
+    
+    private Connection con = null;
 
-    public MateriaData() {
-    }
+    public MateriaData() {}
     
     public void guardarMateria(Materia mat){
        
@@ -91,7 +91,6 @@ public class MateriaData {
         
         String sql="UPDATE materia SET nombre= ?, año= ?, estado= ? WHERE idMateria=?";
                 
-        
         try {
             
             PreparedStatement ps= con.prepareStatement(sql);
@@ -126,6 +125,7 @@ public class MateriaData {
             
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
+            
             while(rs.next()){
                 
                 Materia materia = new Materia();
@@ -147,8 +147,6 @@ public class MateriaData {
           
         return materiaList;
     
-    
     }
-
-            
+        
 }

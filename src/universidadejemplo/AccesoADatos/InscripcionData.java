@@ -24,6 +24,7 @@ public class InscripcionData {
         String sql="INSERT INTO inscripcion (nota,idAlumno,idMateria)"+ "VALUES(?,?,?)";
         
         PreparedStatement ps;
+        
         try {
             ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
