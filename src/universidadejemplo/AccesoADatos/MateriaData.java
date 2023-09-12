@@ -19,10 +19,13 @@ public class MateriaData {
     }
     
     public void guardarMateria(Materia mat){
-       String sql="INSERT INTO materia (nombre,año,estado)"+ "VALUES(?,?,?,?,?)";
+       
+        String sql="INSERT INTO materia (nombre,año,estado)"+ "VALUES(?,?,?,?,?)";
         
         PreparedStatement ps;
+        
         try {
+            
             ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
            
             ps.setString(1, mat.getNombre());
@@ -31,15 +34,20 @@ public class MateriaData {
        
             
         ResultSet rs=ps.getGeneratedKeys();
+           
             if (rs.next()) {
+
                 mat.setIdMateria(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Materia Guardada ");
+            
             }
+            
             ps.close();
-            
-            
+
         } catch (SQLException ex) {
+            
             JOptionPane.showMessageDialog(null, "Error  al acceder a la tabla materia "+ex.getMessage());
+        
         }
    
     } 
