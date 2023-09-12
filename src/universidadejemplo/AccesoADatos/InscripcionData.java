@@ -36,6 +36,7 @@ public class InscripcionData {
             if (rs.next()) {
                 
                 ins.setIdInscripcion(rs.getInt(1));
+                
                 JOptionPane.showMessageDialog(null, "Inscripcion exitosa");
             
             }
@@ -57,7 +58,8 @@ public class InscripcionData {
                 
         try {
 
-            PreparedStatement ps = con.prepareStatement(sql, 0);
+            PreparedStatement ps;
+            ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {

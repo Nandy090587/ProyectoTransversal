@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 
 public class Conexion {
+    
     private static final String URL="jdbc:mariadb://localhost/";
     private static final String DB="universidadejemplo";
     private static final String USUARIO="root";
@@ -30,24 +31,27 @@ public class Conexion {
                 connection = DriverManager.getConnection(URL + DB , USUARIO , PASSWORD);
 
                 JOptionPane.showMessageDialog(null, "Conectado ");
-//                connection = DriverManager.getConnection(URL+DB +"?useLegacyDatetimeCode=false&serverTimezone=UTC"
-//                        +"&user=" + USUARIO + "&password=" +PASSWORD);
+
             } catch (ClassNotFoundException ex) {
+               
                 JOptionPane.showMessageDialog(null, "Error al cargar los Drives: "+ex.getMessage());
+            
             } catch (SQLException ex) {
+                
                 JOptionPane.showMessageDialog(null, "Error a Conectarse a la Base Datos"+ex.getMessage());
-            } 
-         
-        
-        
+            
+            }
         
     }
+        
         return connection;
     
     }  
 
     PreparedStatement prepareStatement(String sql, int RETURN_GENERATED_KEYS) {
+        
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
     }
     
 }
