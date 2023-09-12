@@ -5,8 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import universidadejemplo.Entidades.Inscripcion;
+import universidadejemplo.Entidades.Materia;
 
 
 public class InscripcionData {
@@ -42,5 +45,39 @@ public class InscripcionData {
             JOptionPane.showMessageDialog(null, "Error  al acceder a la tabla inscripcion "+ex.getMessage());
         } 
     }
+  public List<Inscripcion> ObtenerInscripciones(){
+        
+        ArrayList<Inscripcion> inscripcionList = new ArrayList<>();
+        
+            String sql="SELECT * FROM inscripcion WHERE 1";
+                
+        try {
+            
+            PreparedStatement ps = con.prepareStatement(sql, 0);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                
+               Inscripcion inscripcion = new Inscripcion();
+                inscripcion.setIdInscripcion(rs.getInt("IdInscripcion"));
+                inscripcion.setNota(rs.getDouble("Nota"));
+                inscripcion.getAlumno().setIdAlumno(rs.getInt("IdAlumno"));
+                inscripcion.getMateria().setIdMateria(rs.getInt("IdMateria"));
+                
+                inscripcionList.add(inscripcion);
+                
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null,"Error al conectar con tabla materia"+ex.getMessage());
+        }
+          
+        return inscripcionList;
     
+    
+    }
+  
 }
