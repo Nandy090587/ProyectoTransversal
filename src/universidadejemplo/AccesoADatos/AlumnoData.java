@@ -12,15 +12,12 @@ import universidadejemplo.Entidades.Alumno;
 public class AlumnoData {
    
     private Connection con=null;
-    
-    
-    
+      
     public AlumnoData(){
         
         con=Conexion.getConexion();
         
     }
-    
     
     public void guardarAlumno(Alumno alumno ){
         
@@ -54,10 +51,6 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "Error  al acceder a la tabla alumno " + ex.getMessage());
         
         }
-
-        
-        
-        
         
     }
     
@@ -134,7 +127,7 @@ public class AlumnoData {
                 
             }else{
                 
-                JOptionPane.showMessageDialog(null,"No exite ese alumno");
+                JOptionPane.showMessageDialog(null,"No existe ese alumno");
             }
             ps.close();
             
@@ -190,7 +183,7 @@ public class AlumnoData {
         
         try {
             
-            PreparedStatement ps=con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, dni);
             ResultSet rs=ps.executeQuery();
             
