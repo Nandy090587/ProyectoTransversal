@@ -2,13 +2,11 @@
 package universidadejemplo.Vistas;
 
 import java.sql.Date;
-import java.time.format.DateTimeFormatter;
 import universidadejemplo.AccesoADatos.AlumnoData;
 import universidadejemplo.Entidades.Alumno;
 
 public class GestionAlumno extends javax.swing.JInternalFrame {
 
-   
     public GestionAlumno() {
         initComponents();
          
@@ -210,6 +208,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         jtApellido.setText(buscarAlumnoDni.getApellido());
         jrEstado.setSelected(buscarAlumnoDni.isActivo());
         jdFecha.setDate(Date.valueOf(buscarAlumnoDni.getFechaNacimiento()));
+        
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
