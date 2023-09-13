@@ -256,12 +256,10 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-<<<<<<< HEAD
+
     private com.toedter.calendar.JDateChooser jDateChooser1;
-=======
     private javax.swing.JButton jButton5;
     private com.toedter.calendar.JDateChooser jDateChooser2;
->>>>>>> 7e3d6a321aac6e560d47c015ff31908e6e7d4a7e
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
