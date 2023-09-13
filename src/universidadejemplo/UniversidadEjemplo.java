@@ -9,7 +9,7 @@ public class universidadejemplo {
     public static void main(String[] args) {
         
         AlumnoData alum= new AlumnoData();
-        Alumno alumnoEncontrado = alum.buscarAlumno(2);
+        Alumno alumnoEncontrado = alum.buscarAlumnoDni(34589602);
         System.out.println(alumnoEncontrado.toString());
 //        MateriaData md = new MateriaData();
 //        InscripcionData id = new InscripcionData();
