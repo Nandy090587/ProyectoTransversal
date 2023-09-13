@@ -3,13 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-
-            <file>file:/C:/Users/9%20Reinas%20Sur/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Entidades/Inscripcion.java</file>
-            <file>file:/C:/Users/9%20Reinas%20Sur/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/AccesoADatos/InscripcionData.java</file>
-            <file>file:/C:/Users/9%20Reinas%20Sur/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/AccesoADatos/MateriaData.java</file>
-
-            <file>file:/C:/Users/ARcade/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Vistas/GestionAlumno.java</file>
-
+            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Vistas/ListadoAlumnoPorMateria.java</file>
+            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/AccesoADatos/InscripcionData.java</file>
+            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Vistas/GestionAlumno.java</file>
+            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Vistas/Vista.java</file>
+            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Vistas/FormularioMateria.java</file>
+            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/AccesoADatos/Conexion.java</file>
+            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/AccesoADatos/AlumnoData.java</file>
+            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Vistas/FormularioInscripcion.java</file>
+            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Vistas/CargarNotas.java</file>
         </group>
     </open-files>
 </project-private>

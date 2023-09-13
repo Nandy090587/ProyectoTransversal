@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import universidadejemplo.Entidades.Alumno;
 
 
@@ -181,4 +182,42 @@ public class AlumnoData {
         return alumnos;
 
 }
+    
+    public Alumno buscarAlumnodni(int dni){
+        
+        String sql="SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni = ? AND estado = 1";
+        Alumno alumno=null;
+        
+        try {
+            
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, dni);
+            ResultSet rs=ps.executeQuery();
+            
+            if (rs.next()) {
+                
+                alumno=new Alumno();
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setApellido(rs.getString ("Apellido"));
+                alumno.setNombre(rs.getString ("nombre"));;
+                alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setActivo(true);
+                
+            }else{
+                
+                JOptionPane.showMessageDialog(null,"No exite ese alumno");
+            
+            }
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null, "Error al buscar Alumno "+ex.getMessage());
+
+        }
+        return alumno;   
+        
+    }
+    
+    
 }
