@@ -1,6 +1,8 @@
 
 package universidadejemplo.Vistas;
 
+import java.sql.Date;
+import java.time.format.DateTimeFormatter;
 import universidadejemplo.AccesoADatos.AlumnoData;
 import universidadejemplo.Entidades.Alumno;
 
@@ -33,7 +35,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
         jbBuscar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jdFecha = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setTitle("Gestor Alumno");
@@ -123,7 +125,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
                         .addGap(187, 187, 187))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jdFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton1)
                                 .addGap(18, 18, 18)
@@ -161,7 +163,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
                             .addComponent(jrEstado))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jdFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addGap(11, 11, 11)
@@ -207,6 +209,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         jtNombre.setText(buscarAlumnoDni.getNombre());
         jtApellido.setText(buscarAlumnoDni.getApellido());
         jrEstado.setSelected(buscarAlumnoDni.isActivo());
+        jdFecha.setDate(Date.valueOf(buscarAlumnoDni.getFechaNacimiento()));
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -220,7 +223,6 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -230,6 +232,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbBuscar;
+    private com.toedter.calendar.JDateChooser jdFecha;
     private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtApellido;
     private javax.swing.JTextField jtDni;
