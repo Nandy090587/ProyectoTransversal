@@ -1,6 +1,7 @@
 
 package universidadejemplo.AccesoADatos;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ import universidadejemplo.Entidades.Inscripcion;
 
 public class InscripcionData {
     
-    private Conexion con;
+    private Connection con=null;
     private MateriaData matData;
     private AlumnoData aluData;
 

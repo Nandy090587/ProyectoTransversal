@@ -112,7 +112,7 @@ public class AlumnoData {
     
     public Alumno buscarAlumno(int id){
         
-        String sql="SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 0";
+        String sql="SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 1";
         Alumno alumno=null;
         
         try {
@@ -124,7 +124,7 @@ public class AlumnoData {
             if (rs.next()) {
                 
                 alumno=new Alumno();
-                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setIdAlumno(id);
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString ("Apellido"));
                 alumno.setNombre(rs.getString ("nombre"));;
@@ -134,8 +134,8 @@ public class AlumnoData {
             }else{
                 
                 JOptionPane.showMessageDialog(null,"No exite ese alumno");
-            
             }
+            ps.close();
             
         } catch (SQLException ex) {
             
