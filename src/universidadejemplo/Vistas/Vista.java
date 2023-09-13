@@ -30,7 +30,7 @@ public class Vista extends javax.swing.JFrame {
         jmManiNotas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jmCAMateria = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        jmSalir = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -120,18 +120,18 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("Salir");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+        jmSalir.setText("Salir");
+        jmSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
+                jmSalirMouseClicked(evt);
             }
         });
-        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+        jmSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu5ActionPerformed(evt);
+                jmSalirActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(jmSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -202,15 +202,15 @@ public class Vista extends javax.swing.JFrame {
         escritorio.moveToFront(cn);
     }//GEN-LAST:event_jmManiNotasActionPerformed
 
-    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+    private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
          
-    }//GEN-LAST:event_jMenu5ActionPerformed
+    }//GEN-LAST:event_jmSalirActionPerformed
 
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+    private void jmSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmSalirMouseClicked
         
         System.exit(0);
         
-    }//GEN-LAST:event_jMenu5MouseClicked
+    }//GEN-LAST:event_jmSalirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -250,7 +250,6 @@ public class Vista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
@@ -262,5 +261,6 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmManeIncripcion;
     private javax.swing.JMenuItem jmManiNotas;
     private javax.swing.JMenu jmMateria;
+    private javax.swing.JMenu jmSalir;
     // End of variables declaration//GEN-END:variables
 }
