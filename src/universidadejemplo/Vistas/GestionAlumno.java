@@ -205,7 +205,8 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         Alumno buscarAlumnoDni = ad.buscarAlumnoDni(num);
         
         jtNombre.setText(buscarAlumnoDni.getNombre());
-        jtApellido  .setText(buscarAlumnoDni.getApellido());
+        jtApellido.setText(buscarAlumnoDni.getApellido());
+        jrEstado.setSelected(buscarAlumnoDni.isActivo());
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
