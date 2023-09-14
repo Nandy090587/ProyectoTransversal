@@ -250,11 +250,13 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         
         AlumnoData alum = new AlumnoData();
         alum.eliminarAlumnoDni (Integer.parseInt(jtDni.getText()));
+        
         jtDni.setText("");
         jtNombre.setText("");
         jtApellido.setText("");
         jrEstado.setSelected(false);
         jdFecha.setDate(null);
+        
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

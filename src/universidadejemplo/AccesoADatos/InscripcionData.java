@@ -22,7 +22,7 @@ public class InscripcionData {
     
     public void guardarInscripcion(Inscripcion ins){
        
-        String sql="INSERT INTO inscripcion (nota,idAlumno,idMateria)"+ "VALUES(?,?,?)";
+        String sql="INSERT INTO inscripcion (nota,idAlumno,idMateria)VALUES(?,?,?)";
         
         PreparedStatement ps;
         
@@ -101,6 +101,7 @@ public class InscripcionData {
         ArrayList<Materia> materiasCursadas = new ArrayList<>();
         String sql = "SELECT inscripcion.idMateria, nombre,año FROM inscripcion,"
                 + "materia WHERE inscripcion.idMateria = materia.idMateria" + "AND inscricion.idAlumno = ?;";
+        
         try {
            
             PreparedStatement ps = con.prepareStatement(sql);
@@ -108,13 +109,15 @@ public class InscripcionData {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
+               
                Materia materia = new Materia();
                materia.setIdMateria(rs.getInt("idmateria"));
                materia.setNombre(rs.getString("nombre"));
                materia.setAnio(rs.getInt("año"));
              
-                materiasCursadas.add(materia);
+               materiasCursadas.add(materia);
             }
+            
             JOptionPane.showMessageDialog(null,"Lista cargada con exito");
             ps.close();
 
@@ -133,6 +136,7 @@ public class InscripcionData {
         ArrayList<Materia> materiasNOCursadas = new ArrayList<>();
         String sql = "SELECT * FROM materia WHERE estado = 1 and idmateria not in" +
                 "(SELECT idMateria FROM inscripcion WHERE idAlumno = ?";
+        
         try {
            
             PreparedStatement ps = con.prepareStatement(sql);
@@ -140,6 +144,7 @@ public class InscripcionData {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
+               
                Materia materia = new Materia();
                materia.setIdMateria(rs.getInt("idmateria"));
                materia.setNombre(rs.getString("nombre"));
@@ -147,6 +152,7 @@ public class InscripcionData {
              
                 materiasNOCursadas.add(materia);
             }
+            
             JOptionPane.showMessageDialog(null,"Lista cargada con exito");
             ps.close();
 
