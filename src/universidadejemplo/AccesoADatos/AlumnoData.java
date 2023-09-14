@@ -5,7 +5,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import universidadejemplo.Entidades.Alumno;
 
 
@@ -231,7 +230,7 @@ public class AlumnoData {
         
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(null, " Error al Eliminar el alumno" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al Eliminar el alumno" + ex.getMessage());
 
         }
 
