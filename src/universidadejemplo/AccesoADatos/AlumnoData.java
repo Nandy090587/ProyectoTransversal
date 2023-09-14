@@ -11,31 +11,30 @@ import universidadejemplo.Entidades.Alumno;
 
 public class AlumnoData {
    
-    private Connection con=null;
+    private Connection con = null;
       
     public AlumnoData(){
         
-        con=Conexion.getConexion();
+        con = Conexion.getConexion();
         
     }
     
     public void guardarAlumno(Alumno alumno ){
         
-        String sql="INSERT INTO alumno (dni, apellido, nombre ,fechaNacimieto ,estado)"+ "VALUES(?,?,?,?,?)";
+        String sql="INSERT INTO alumno (dni, apellido, nombre ,fechaNacimiento ,estado) VALUES(?,?,?,?,?)";
         
-        PreparedStatement ps;
-       
         try {
             
-            ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+           
             ps.setInt(1, alumno.getDni());
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());
             ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));
             ps.setBoolean(5, alumno.isActivo());
-
+            ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
+           
             if (rs.next()) {
 
                 alumno.setIdAlumno(rs.getInt(1));

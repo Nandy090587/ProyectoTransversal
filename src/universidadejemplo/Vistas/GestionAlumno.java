@@ -2,6 +2,8 @@
 package universidadejemplo.Vistas;
 
 import java.sql.Date;
+import java.time.ZoneId;
+import javax.swing.JOptionPane;
 import universidadejemplo.AccesoADatos.AlumnoData;
 import universidadejemplo.Entidades.Alumno;
 
@@ -28,8 +30,8 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         jtNombre = new javax.swing.JTextField();
         jrEstado = new javax.swing.JRadioButton();
         jbNuevo = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jbGuardar = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jbBuscar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -72,12 +74,17 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setText("Guardar");
-
-        jButton3.setText("Salir");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbGuardarActionPerformed(evt);
+            }
+        });
+
+        jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
             }
         });
 
@@ -129,9 +136,9 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton4)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2)
+                                .addComponent(jbGuardar)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton3)))
+                                .addComponent(jbSalir)))
                         .addGap(55, 55, 55))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -167,9 +174,9 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNuevo)
-                    .addComponent(jButton3)
+                    .addComponent(jbSalir)
                     .addComponent(jButton4)
-                    .addComponent(jButton2))
+                    .addComponent(jbGuardar))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -216,15 +223,28 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jbBuscarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         
         dispose();
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        
+        AlumnoData ad = new AlumnoData();
+        Alumno guardarAlum = new Alumno();
+        
+        guardarAlum.setDni( Integer.parseInt(jtDni.getText()));
+        guardarAlum.setApellido(jtApellido.getText());
+        guardarAlum.setNombre(jtNombre.getText());
+        guardarAlum.setFechaNacimiento(jdFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        guardarAlum.setActivo(jrEstado.isSelected());
+        
+        ad.guardarAlumno(guardarAlum);
+        
+    }//GEN-LAST:event_jbGuardarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -235,7 +255,9 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbBuscar;
+    private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbNuevo;
+    private javax.swing.JButton jbSalir;
     private com.toedter.calendar.JDateChooser jdFecha;
     private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtApellido;
