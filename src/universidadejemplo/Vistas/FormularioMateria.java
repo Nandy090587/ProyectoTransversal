@@ -1,5 +1,8 @@
 package universidadejemplo.Vistas;
 
+import universidadejemplo.AccesoADatos.MateriaData;
+import universidadejemplo.Entidades.Materia;
+
 
 public class FormularioMateria extends javax.swing.JInternalFrame {
 
@@ -46,6 +49,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jLabel5.setText("Estado");
 
         jbBuscar.setText("Buscar");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
 
         jbNuevaMateria.setText("Nuevo");
 
@@ -151,6 +159,17 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        
+        MateriaData md = new MateriaData();
+        Materia buscarMat = md.buscarMateria(Integer.parseInt(jtCodigo.getText()));
+        
+        jtNombre.setText(buscarMat.getNombre());
+        jtAnio.setText(buscarMat.getAnio()+"");
+        jrEstado.setSelected(buscarMat.isEstado());
+        
+    }//GEN-LAST:event_jbBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
