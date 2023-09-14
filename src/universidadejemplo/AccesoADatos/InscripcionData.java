@@ -95,5 +95,39 @@ public class InscripcionData {
         
         return inscripcionListAlu;
     }
-    
+    public List<Inscripcion> ObtenerMateriasCursadas(int id) {
+
+        List<Inscripcion> materiasCursadas = new ArrayList<>();
+        
+        try {
+            
+            String sql = "SELECT * FROM materia WHERE estado = 1 ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                
+                Inscripcion ins = new Inscripcion();
+
+                ins.setIdInscripcion(rs.getInt("idInscripcion"));
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setActivo(rs.getBoolean("estado"));
+                alumnos.add(alumno);
+            
+            }
+            
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Alumno " + ex.getMessage());
+
+        }
+
+        return alumnos;
+
+    }
 }

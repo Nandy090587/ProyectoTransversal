@@ -208,13 +208,29 @@ public class AlumnoData {
             ps.close();
 
         } catch (SQLException ex) {
-            
+
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Alumno " + ex.getMessage());
-        
+
         }
-        
+
         return alumnos;
 
     }
-    
+
+    public void eliminarAlumnoDni(int dni) {
+
+        String sql = "UPDate alumno SET estado = 0 WHERE dni = ?";
+
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, dni);
+            int exito = ps.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Alumno eliminido con exito");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Error al Eliminar la tabla" + ex.getMessage());
+
+        }
+
+    }
 }
