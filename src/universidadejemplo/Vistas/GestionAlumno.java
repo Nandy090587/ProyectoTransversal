@@ -3,7 +3,6 @@ package universidadejemplo.Vistas;
 
 import java.sql.Date;
 import java.time.ZoneId;
-import javax.swing.JOptionPane;
 import universidadejemplo.AccesoADatos.AlumnoData;
 import universidadejemplo.Entidades.Alumno;
 
@@ -32,7 +31,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         jbNuevo = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jbEliminar = new javax.swing.JButton();
         jbBuscar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jdFecha = new com.toedter.calendar.JDateChooser();
@@ -88,7 +87,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton4.setText("Eliminar");
+        jbEliminar.setText("Eliminar");
 
         jbBuscar.setText("Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +133,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jbNuevo)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton4)
+                                .addComponent(jbEliminar)
                                 .addGap(18, 18, 18)
                                 .addComponent(jbGuardar)
                                 .addGap(18, 18, 18)
@@ -175,7 +174,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNuevo)
                     .addComponent(jbSalir)
-                    .addComponent(jButton4)
+                    .addComponent(jbEliminar)
                     .addComponent(jbGuardar))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
@@ -245,7 +244,6 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -255,6 +253,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbBuscar;
+    private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbNuevo;
     private javax.swing.JButton jbSalir;
