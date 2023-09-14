@@ -16,7 +16,11 @@ public class MateriaData {
     
     private Connection con = null;
 
-    public MateriaData() {}
+    public MateriaData() {
+    
+        con = Conexion.getConexion();
+    
+    }
     
     public void guardarMateria(Materia mat){
        
@@ -54,12 +58,13 @@ public class MateriaData {
     
     public Materia buscarMateria(int id) {
         
-        String sql="SELECT nombre, año, estado, FROM materia WHERE idMateria = ? AND estado = 0";
-        Materia materia=null;
+        String sql="SELECT nombre, año, estado FROM materia WHERE idMateria = ? AND estado = 1";
+        Materia materia = null;
+        PreparedStatement ps = null;
         
         try {
             
-            PreparedStatement ps=con.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs=ps.executeQuery();
             

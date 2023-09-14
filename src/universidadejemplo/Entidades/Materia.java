@@ -8,6 +8,24 @@ public class Materia {
     private String nombre;
     private int anio;
     private boolean estado;
+    
+    
+    public Materia(String nombre, int anio, boolean estado) {
+        this.nombre = nombre;
+        this.anio = anio;
+        this.estado = estado;
+    }
+
+    public Materia(int idMateria, String nombre, int anio, boolean estado) {
+        this.idMateria = idMateria;
+        this.nombre = nombre;
+        this.anio = anio;
+        this.estado = estado;
+    }
+
+    public Materia() {
+    }
+
 
     public int getIdMateria() {
         return idMateria;
@@ -41,28 +59,9 @@ public class Materia {
         this.estado = estado;
     }
 
-    public Materia(String nombre, int anio, boolean estado) {
-        this.nombre = nombre;
-        this.anio = anio;
-        this.estado = estado;
-    }
-
-    public Materia(int idMateria, String nombre, int anio, boolean estado) {
-        this.idMateria = idMateria;
-        this.nombre = nombre;
-        this.anio = anio;
-        this.estado = estado;
-    }
-
-    public Materia() {
-    }
-
     @Override
     public String toString() {
         return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + ", estado=" + estado + '}';
     }
-
-   
-
     
 }
