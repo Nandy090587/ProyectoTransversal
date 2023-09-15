@@ -144,9 +144,10 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void armarCabecera(){
+        
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
-        modelo.addColumn("A�o");
+        modelo.addColumn("Anio");
         jtMateria.setModel(modelo);
         
     }
