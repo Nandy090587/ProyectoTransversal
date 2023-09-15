@@ -12,7 +12,9 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         initComponents();
         
     }
-
+    
+    MateriaData md = new MateriaData();
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -178,7 +180,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         
-        MateriaData md = new MateriaData();
+
         Materia buscarMat = md.buscarMateria(Integer.parseInt(jtCodigo.getText()));
         
         if(buscarMat!=null){
@@ -193,7 +195,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
        
-        MateriaData md = new MateriaData();
+
         Materia guardarMat = new Materia();
         
         guardarMat.setNombre(jtNombre.getText());
@@ -207,7 +209,6 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         
-        MateriaData md = new MateriaData();
         md.eliminarMateria(Integer.parseInt(jtCodigo.getText()));
         
     }//GEN-LAST:event_jbEliminarActionPerformed

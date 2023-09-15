@@ -12,7 +12,9 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         initComponents();
          
     }
-
+    
+    AlumnoData ad = new AlumnoData();
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -219,8 +221,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jrEstadoActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        
-        AlumnoData ad = new AlumnoData();  
+         
         int num = Integer.parseInt(jtDni.getText());
         Alumno buscarAlumnoDni = ad.buscarAlumnoDni(num);
         
@@ -243,7 +244,6 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         
-        AlumnoData ad = new AlumnoData();
         Alumno guardarAlum = new Alumno();
         
         guardarAlum.setDni( Integer.parseInt(jtDni.getText()));
@@ -258,8 +258,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         
-        AlumnoData alum = new AlumnoData();
-        alum.eliminarAlumnoDni (Integer.parseInt(jtDni.getText()));
+        ad.eliminarAlumnoDni (Integer.parseInt(jtDni.getText()));
         
         jtDni.setText("");
         jtNombre.setText("");
