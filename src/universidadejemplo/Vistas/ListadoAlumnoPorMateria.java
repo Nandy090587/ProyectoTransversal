@@ -1,12 +1,17 @@
+
 package universidadejemplo.Vistas;
+
+import javax.swing.table.DefaultTableModel;
 
 
 public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
 
-  
+    private DefaultTableModel modelo=new DefaultTableModel();
+    
     public ListadoAlumnoPorMateria() {
         
         initComponents();
+        armarCabecera();
         
     }
    
@@ -18,7 +23,7 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtTablaMateria = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -27,7 +32,7 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel2.setText("Seleccione una Materia");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtTablaMateria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -38,7 +43,7 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtTablaMateria);
 
         jButton1.setText("Salir");
 
@@ -51,7 +56,7 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addGap(52, 52, 52)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,6 +95,17 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtTablaMateria;
     // End of variables declaration//GEN-END:variables
+
+private void armarCabecera(){
+        
+        modelo.addColumn("IdMateria");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Anio");
+        modelo.addColumn("Estado");
+        jtTablaMateria.setModel(modelo);
+        
+    }
+
 }
