@@ -57,10 +57,6 @@ public class MateriaData {
     } 
     
     public Materia buscarMateria(int id) {
-        
-
-        String sql="SELECT nombre, año, estado, FROM materia WHERE idMateria = ? AND estado = 1";
-        Materia materia=null;
 
         String sql="SELECT nombre, año, estado FROM materia WHERE idMateria = ? AND estado = 1";
         Materia materia = null;
@@ -116,7 +112,6 @@ public class MateriaData {
                 JOptionPane.showMessageDialog(null, "Materia Modificada");
             
             }
-            
             
         } catch (SQLException ex) {
             
