@@ -223,10 +223,14 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         int num = Integer.parseInt(jtDni.getText());
         Alumno buscarAlumnoDni = ad.buscarAlumnoDni(num);
         
-        jtNombre.setText(buscarAlumnoDni.getNombre());
-        jtApellido.setText(buscarAlumnoDni.getApellido());
-        jrEstado.setSelected(buscarAlumnoDni.isActivo());
-        jdFecha.setDate(Date.valueOf(buscarAlumnoDni.getFechaNacimiento()));
+        if(buscarAlumnoDni != null){
+            
+            jtNombre.setText(buscarAlumnoDni.getNombre());
+            jtApellido.setText(buscarAlumnoDni.getApellido());
+            jrEstado.setSelected(buscarAlumnoDni.isActivo());
+            jdFecha.setDate(Date.valueOf(buscarAlumnoDni.getFechaNacimiento()));
+            
+        }
         
     }//GEN-LAST:event_jbBuscarActionPerformed
 

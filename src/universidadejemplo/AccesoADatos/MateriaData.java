@@ -74,8 +74,8 @@ public class MateriaData {
                 materia=new Materia();
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("año"));
-                materia.setEstado(rs.getBoolean("estado"));
                 materia.setEstado(true);
+                JOptionPane.showMessageDialog(null," Materia encontrada");
                 
             }else{
                 
@@ -83,7 +83,6 @@ public class MateriaData {
             
             }
             
-            JOptionPane.showMessageDialog(null,"Materia encontrada");
             ps.close();
             
         } catch (SQLException ex) {         
@@ -127,19 +126,24 @@ public class MateriaData {
     
     public void eliminarMateria(int id) {
 
-        String sql = "UPDate materia SET estado = 0 WHERE idMateria = ?";
+        String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ?";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             int exito = ps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Materia eliminada");
+            
+            if(exito==1){
+                
+                JOptionPane.showMessageDialog(null, " Materia eliminada ");
+                }
+           
             ps.close();
 
         } catch (SQLException ex) {
             
-            JOptionPane.showMessageDialog(null, " Error al Eliminar la tabla" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, " Error al Eliminar la fila " + ex.getMessage());
 
         }
 

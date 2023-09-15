@@ -1,9 +1,7 @@
+
 package universidadejemplo.Vistas;
 
-import java.time.ZoneId;
-import universidadejemplo.AccesoADatos.AlumnoData;
 import universidadejemplo.AccesoADatos.MateriaData;
-import universidadejemplo.Entidades.Alumno;
 import universidadejemplo.Entidades.Materia;
 
 
@@ -60,6 +58,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jbNuevaMateria.setText("Nuevo");
 
         jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -173,9 +176,13 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         MateriaData md = new MateriaData();
         Materia buscarMat = md.buscarMateria(Integer.parseInt(jtCodigo.getText()));
         
-        jtNombre.setText(buscarMat.getNombre());
-        jtAnio.setText(buscarMat.getAnio()+"");
-        jrEstado.setSelected(buscarMat.isEstado());
+        if(buscarMat!=null){
+            
+            jtNombre.setText(buscarMat.getNombre());
+            jtAnio.setText(buscarMat.getAnio()+"");
+            jrEstado.setSelected(buscarMat.isEstado());
+            
+        }
         
     }//GEN-LAST:event_jbBuscarActionPerformed
 
@@ -192,6 +199,13 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        
+        MateriaData md = new MateriaData();
+        md.eliminarMateria(Integer.parseInt(jtCodigo.getText()));
+        
+    }//GEN-LAST:event_jbEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
