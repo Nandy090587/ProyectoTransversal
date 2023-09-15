@@ -184,12 +184,13 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         MateriaData md = new MateriaData();
         Materia guardarMat = new Materia();
         
-//        guardarMat.setIdMateria(Integer.parseInt(jtCodigo.getText()));
         guardarMat.setNombre(jtNombre.getText());
         guardarMat.setAnio(Integer.parseInt(jtAnio.getText()));
         guardarMat.setEstado(jrEstado.isSelected());
         
         md.guardarMateria(guardarMat);
+        
+        
     }//GEN-LAST:event_jbGuardarActionPerformed
 
 
