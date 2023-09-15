@@ -83,6 +83,9 @@ public class MateriaData {
             
             }
             
+            JOptionPane.showMessageDialog(null,"Materia encontrada");
+            ps.close();
+            
         } catch (SQLException ex) {         
             
             JOptionPane.showMessageDialog(null, "Error al buscar la materia "+ex.getMessage());
@@ -113,11 +116,33 @@ public class MateriaData {
             
             }
             
+            ps.close();
+            
         } catch (SQLException ex) {
             
             JOptionPane.showMessageDialog(null,"Error al conectar con tabla materia"+ex.getMessage());
         
         }
+    }
+    
+    public void eliminarMateria(int id) {
+
+        String sql = "UPDate materia SET estado = 0 WHERE idMateria = ?";
+
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int exito = ps.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Materia eliminada");
+            ps.close();
+
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null, " Error al Eliminar la tabla" + ex.getMessage());
+
+        }
+
     }
     
     public List<Materia> ListarMaterias(){
