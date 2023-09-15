@@ -54,7 +54,7 @@ public class MateriaData {
     
     public Materia buscarMateria(int id) {
         
-        String sql="SELECT nombre, año, estado, FROM materia WHERE idMateria = ? AND estado = 0";
+        String sql="SELECT nombre, año, estado, FROM materia WHERE idMateria = ? AND estado = 1";
         Materia materia=null;
         
         try {
