@@ -16,11 +16,15 @@ public class MateriaData {
     
     private Connection con = null;
 
-    public MateriaData() {}
+    public MateriaData() {
+    
+        con = Conexion.getConexion();
+    
+    }
     
     public void guardarMateria(Materia mat){
        
-        String sql="INSERT INTO materia (nombre,año,estado)"+ "VALUES(?,?,?,?,?)";
+        String sql="INSERT INTO materia (nombre, año, estado) VALUES (?, ?, ?)";
         
         PreparedStatement ps;
         
@@ -31,9 +35,9 @@ public class MateriaData {
             ps.setString(1, mat.getNombre());
             ps.setInt(2,mat.getAnio());
             ps.setBoolean(3, mat.isEstado());
-       
+            ps.executeUpdate();
             
-        ResultSet rs=ps.getGeneratedKeys();
+            ResultSet rs=ps.getGeneratedKeys();
            
             if (rs.next()) {
 
@@ -54,12 +58,18 @@ public class MateriaData {
     
     public Materia buscarMateria(int id) {
         
+
         String sql="SELECT nombre, año, estado, FROM materia WHERE idMateria = ? AND estado = 1";
         Materia materia=null;
+
+        String sql="SELECT nombre, año, estado FROM materia WHERE idMateria = ? AND estado = 1";
+        Materia materia = null;
+        PreparedStatement ps = null;
+
         
         try {
             
-            PreparedStatement ps=con.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs=ps.executeQuery();
             
