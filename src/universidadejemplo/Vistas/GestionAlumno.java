@@ -211,6 +211,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         jtApellido.setText("");
         jrEstado.setSelected(false);
         jdFecha.setDate(null);
+        
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jrEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrEstadoActionPerformed

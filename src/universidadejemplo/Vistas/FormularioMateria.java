@@ -56,6 +56,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         });
 
         jbNuevaMateria.setText("Nuevo");
+        jbNuevaMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevaMateriaActionPerformed(evt);
+            }
+        });
 
         jbEliminar.setText("Eliminar");
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -206,6 +211,15 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         md.eliminarMateria(Integer.parseInt(jtCodigo.getText()));
         
     }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbNuevaMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevaMateriaActionPerformed
+        
+        jtCodigo.setText("");
+        jtNombre.setText("");
+        jtAnio.setText("");
+        jrEstado.setSelected(false);
+        
+    }//GEN-LAST:event_jbNuevaMateriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
