@@ -1,16 +1,20 @@
 
 package universidadejemplo.Vistas;
 
+import java.sql.Connection;
 import javax.swing.ImageIcon;
+import universidadejemplo.AccesoADatos.Conexion;
 
 public class Vista extends javax.swing.JFrame {
-   
+    
+    private Connection con = null;
+        
     public Vista() {
         
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("libro.png")).getImage());            
-                     
+        con = Conexion.getConexion();             
     }
 
     @SuppressWarnings("unchecked")
