@@ -1,15 +1,22 @@
 package universidadejemplo.Vistas;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import universidadejemplo.AccesoADatos.*;
+import universidadejemplo.Entidades.*;
 
 
 public class CargarNotas extends javax.swing.JInternalFrame {
 
-    private DefaultTableModel modelo=new DefaultTableModel();
+    private DefaultTableModel modelo = new DefaultTableModel();
     
     public CargarNotas() {
+        
         initComponents();
         armarCabecera();
+        cargarCombo();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -18,11 +25,11 @@ public class CargarNotas extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtAlumnoNota = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jcbListaAlumnos = new javax.swing.JComboBox<>();
 
         jLabel1.setText("Cargar de Notas");
 
@@ -48,6 +55,12 @@ public class CargarNotas extends javax.swing.JInternalFrame {
 
         jButton2.setText("Salir");
 
+        jcbListaAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbListaAlumnosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,12 +72,12 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(60, 60, 60)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcbListaAlumnos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(107, 107, 107)
@@ -80,7 +93,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbListaAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -93,14 +106,19 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jcbListaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbListaAlumnosActionPerformed
+        
+    
+    }//GEN-LAST:event_jcbListaAlumnosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<Alumno> jcbListaAlumnos;
     private javax.swing.JTable jtAlumnoNota;
     // End of variables declaration//GEN-END:variables
 
@@ -110,8 +128,24 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         modelo.addColumn("Nombre");
         modelo.addColumn("Nota");
         jtAlumnoNota.setModel(modelo);
+        
     }
     
-    
+    private void cargarCombo() {
+
+        AlumnoData ad = new AlumnoData();
+        List<Alumno> cblistaAlu = ad.listarAlumnos();
+        
+        for(int i = 0 ; i < cblistaAlu.size() ; i++ ){
+            
+           jcbListaAlumnos.addItem(new Alumno(cblistaAlu.get(i).getIdAlumno()
+                   ,cblistaAlu.get(i).getDni()
+                   ,cblistaAlu.get(i).getApellido()
+                   ,cblistaAlu.get(i).getNombre()
+                   ,cblistaAlu.get(i).getFechaNacimiento()
+                   ,cblistaAlu.get(i).isActivo()));
+           
+        }
+    }
     
 }
