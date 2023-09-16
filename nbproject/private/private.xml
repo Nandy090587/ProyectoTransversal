@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/UniversidadEjemplo.java</file>
-            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Vistas/GestionAlumno.java</file>
+            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/AccesoADatos/InscripcionData.java</file>
             <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/AccesoADatos/MateriaData.java</file>
-            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Entidades/Materia.java</file>
-            <file>file:/C:/Users/Hogar/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Vistas/FormularioInscripcion.java</file>
-=======
-            <file>file:/C:/Users/ARcade/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/AccesoADatos/MateriaData.java</file>
-            <file>file:/C:/Users/ARcade/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/universidadejemplo.java</file>
-            <file>file:/C:/Users/ARcade/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/AccesoADatos/AlumnoData.java</file>
-            <file>file:/C:/Users/ARcade/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Entidades/Materia.java</file>
-            <file>file:/C:/Users/ARcade/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Vistas/FormularioMateria.java</file>
-            <file>file:/C:/Users/ARcade/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/Vistas/GestionAlumno.java</file>
-            <file>file:/C:/Users/ARcade/Documents/GitHub/ProyectoTransversal/src/universidadejemplo/AccesoADatos/InscripcionData.java</file>
->>>>>>> 695b4f9d2d6acdf197e36da129cac6328ebb68bf
         </group>
     </open-files>
 </project-private>

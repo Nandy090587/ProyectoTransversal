@@ -8,7 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import universidadejemplo.Entidades.Alumno;
 import universidadejemplo.Entidades.Inscripcion;
 import universidadejemplo.Entidades.Materia;
 
@@ -17,6 +20,12 @@ public class InscripcionData {
     private Connection con=null;
     private MateriaData matData;
     private AlumnoData aluData;
+    private AlumnoData ad=new AlumnoData();
+    private MateriaData md=new MateriaData();
+    
+    
+    
+    
 
     public InscripcionData(){}
     
@@ -88,11 +97,38 @@ public class InscripcionData {
         return inscripcionList;
     }
   
-    public List<Inscripcion> ObternerInscripcionesPorAlumno(int id) {
+    public List<Inscripcion> ObternerInscripcionesPorAlumno(int idAlumno) {
 
         ArrayList<Inscripcion> inscripcionListAlu = new ArrayList<>();
 
         String sql = "SELECT * FROM inscripcion WHERE idAmlumno = ?";
+        
+        try {	
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()) {                
+                Inscripcion insc=new Inscripcion();
+                insc.setIdInscripcion(rs.getInt("idInscripto"));
+                Alumno alu=ad.buscarAlumno(rs.getInt("idAlumno"));
+                Materia mat=md.buscarMateria(rs.getInt("idMateria"));
+                insc.setAlumno(alu);
+                insc.setMateria(mat);
+                insc.setNota(rs.getDouble("nota"));
+                inscripcionListAlu.add(insc);
+                
+                
+                
+            }
+            ps.close();
+            
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al Obtener Inscripcion por Alumno "+ex.getMessage());
+
+        }
+        
         
         return inscripcionListAlu;
     }
@@ -165,4 +201,74 @@ public class InscripcionData {
         return materiasNOCursadas;
 
     }
+    
+    public void actualizarNota(int idAlumno, int idMateria, double nota ){
+        
+        String sql="UPDATE inscripcion SET nota = ? WHERE idAlumno = ? and idMateria = ? ";
+        
+        PreparedStatement ps;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setDouble(1, nota);
+            ps.setInt(2, idAlumno);
+            ps.setInt(3, idMateria);
+            
+            int filas=ps.executeUpdate();
+            
+            if (filas>0) {
+                JOptionPane.showMessageDialog(null, "Nota Actualizada Corectamente ");
+            }
+            ps.close();
+
+                    
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al Actualizar Nota "+ex.getMessage());
+
+
+        }
+       
+        
+        
+        
+    }
+    
+    public void borrarInscripcionMateriaAlumno(int idAlumno ,int idMateria){
+   
+        String sql="DELETE FROM inscripcion WHERE idAlumno = ? and idMateria = ? ";
+        
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            ps.setInt(2, idMateria);
+            
+            int filas=ps.executeUpdate();
+            
+            if (filas>0) {
+                JOptionPane.showMessageDialog(null, "Inscripcion Borrada Correctamente ");
+            }
+            ps.close();
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al Borrar Inscripcion "+ex.getMessage());
+        }
+        
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
 }
