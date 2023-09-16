@@ -202,6 +202,44 @@ public class InscripcionData {
 
     }
     
+    public List<Alumno> obtenerAlumnosXMateria(int idMateria){ 
+           
+        ArrayList<Alumno> alumnoMateria=new ArrayList<>();
+    
+        String slq="SELECT a.idAlumno, dni, nombre, apellido, fechaNacimiento. estado "
+                +"FROM inscripcion i,alumno a WHERE i.idAlumno = a.idAlumno and idMateria = ? and a.estado = 1 ";
+        
+        try {
+            PreparedStatement ps=con.prepareStatement(slq);
+            ps.setInt(1, idMateria);
+            
+            ResultSet rs=ps.executeQuery();
+            
+            while (rs.next()) { 
+                
+                Alumno alumno=new Alumno();
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setActivo(rs.getBoolean("estado"));
+                alumnoMateria.add(alumno);
+                
+                
+                JOptionPane.showMessageDialog(null, "");
+            }
+            ps.close(); 
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al Obtener Materia por Alumno "+ex.getMessage());
+        }
+        
+         return alumnoMateria;
+                
+    }
+    
+    
+    
     public void actualizarNota(int idAlumno, int idMateria, double nota ){
         
         String sql="UPDATE inscripcion SET nota = ? WHERE idAlumno = ? and idMateria = ? ";
