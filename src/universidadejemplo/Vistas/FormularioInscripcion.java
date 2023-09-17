@@ -171,13 +171,13 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
         AlumnoData ad = new AlumnoData();
         List<Alumno> cblistaAlu = ad.listarAlumnos();
-        
-        for(int i = 0 ; i < cblistaAlu.size() ; i++ ){
-            
-            jcbListaAlumnos.addItem(new Alumno(cblistaAlu.get(i).getDni()
-                ,cblistaAlu.get(i).getApellido()
-                ,cblistaAlu.get(i).getNombre()));
-           
+
+        for (int i = 0; i < cblistaAlu.size(); i++) {
+
+            jcbListaAlumnos.addItem(new Alumno(cblistaAlu.get(i).getDni(),
+                     cblistaAlu.get(i).getApellido(),
+                     cblistaAlu.get(i).getNombre()));
+
         }
     }
 

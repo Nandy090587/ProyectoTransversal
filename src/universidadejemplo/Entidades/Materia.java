@@ -8,7 +8,11 @@ public class Materia {
     private String nombre;
     private int anio;
     private boolean estado;
-    
+
+    public Materia(String nombre, int anio) {
+        this.nombre = nombre;
+        this.anio = anio;
+    }
     
     public Materia(String nombre, int anio, boolean estado) {
         this.nombre = nombre;

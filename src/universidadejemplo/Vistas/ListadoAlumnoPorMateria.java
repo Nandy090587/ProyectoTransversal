@@ -122,18 +122,16 @@ private void armarCabecera(){
         
     }
 
-private void cargarCombo(){
+    private void cargarCombo() {
 
         MateriaData md = new MateriaData();
         List<Materia> cblistaMat = md.ListarMaterias();
-        
-        for(int i = 0 ; i < cblistaMat.size() ; i++ ){
-            
-           jcbListaMaterias.addItem(new Materia(cblistaMat.get(i).getIdMateria()
-                   ,cblistaMat.get(i).getNombre()
-                   ,cblistaMat.get(i).getAnio()
-                   ,cblistaMat.get(i).isEstado()));
-           
+
+        for (int i = 0; i < cblistaMat.size(); i++) {
+
+            jcbListaMaterias.addItem(new Materia(cblistaMat.get(i).getNombre(),
+                     cblistaMat.get(i).getAnio()));
+
         }
     }
 
