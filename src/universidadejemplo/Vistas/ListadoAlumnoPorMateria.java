@@ -1,7 +1,12 @@
 
 package universidadejemplo.Vistas;
 
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import universidadejemplo.AccesoADatos.AlumnoData;
+import universidadejemplo.AccesoADatos.MateriaData;
+import universidadejemplo.Entidades.Alumno;
+import universidadejemplo.Entidades.Materia;
 
 
 public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
@@ -12,7 +17,7 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
         
         initComponents();
         armarCabecera();
-        
+        cargarCombo();
     }
    
     @SuppressWarnings("unchecked")
@@ -21,7 +26,7 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcbListaMaterias = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTablaMateria = new javax.swing.JTable();
         jbSalir = new javax.swing.JButton();
@@ -70,7 +75,7 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(59, 59, 59)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jcbListaMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -79,7 +84,7 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbListaMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -99,11 +104,11 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbSalir;
+    private javax.swing.JComboBox<Materia> jcbListaMaterias;
     private javax.swing.JTable jtTablaMateria;
     // End of variables declaration//GEN-END:variables
 
@@ -115,6 +120,21 @@ private void armarCabecera(){
         modelo.addColumn("Estado");
         jtTablaMateria.setModel(modelo);
         
+    }
+
+private void cargarCombo(){
+
+        MateriaData md = new MateriaData();
+        List<Materia> cblistaMat = md.ListarMaterias();
+        
+        for(int i = 0 ; i < cblistaMat.size() ; i++ ){
+            
+           jcbListaMaterias.addItem(new Materia(cblistaMat.get(i).getIdMateria()
+                   ,cblistaMat.get(i).getNombre()
+                   ,cblistaMat.get(i).getAnio()
+                   ,cblistaMat.get(i).isEstado()));
+           
+        }
     }
 
 }
