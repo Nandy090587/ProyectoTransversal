@@ -1,7 +1,10 @@
 
 package universidadejemplo.Vistas;
 
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import universidadejemplo.AccesoADatos.AlumnoData;
+import universidadejemplo.Entidades.Alumno;
 
 
 public class FormularioInscripcion extends javax.swing.JInternalFrame {
@@ -12,6 +15,8 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         
         initComponents();
         armarCabecera();
+        cargarCombo();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -19,7 +24,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcbListaAlumnos = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jrMateriaNoInscripta = new javax.swing.JRadioButton();
@@ -61,6 +66,11 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jbNoInscribir.setText("Anular Inscripcion");
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,7 +95,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel2)
                 .addGap(44, 44, 44)
-                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jcbListaAlumnos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -107,7 +117,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbListaAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(33, 33, 33)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,9 +138,13 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+       
+        dispose();
+        
+    }//GEN-LAST:event_jbSalirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -138,6 +152,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbInscribir;
     private javax.swing.JButton jbNoInscribir;
     private javax.swing.JButton jbSalir;
+    private javax.swing.JComboBox<Alumno> jcbListaAlumnos;
     private javax.swing.JRadioButton jrMateriaInscripta;
     private javax.swing.JRadioButton jrMateriaNoInscripta;
     private javax.swing.JTable jtMateria;
@@ -150,6 +165,23 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         modelo.addColumn("Anio");
         jtMateria.setModel(modelo);
         
+    }
+    
+    private void cargarCombo() {
+
+        AlumnoData ad = new AlumnoData();
+        List<Alumno> cblistaAlu = ad.listarAlumnos();
+        
+        for(int i = 0 ; i < cblistaAlu.size() ; i++ ){
+            
+           jcbListaAlumnos.addItem(new Alumno(cblistaAlu.get(i).getIdAlumno()
+                ,cblistaAlu.get(i).getDni()
+                ,cblistaAlu.get(i).getApellido()
+                ,cblistaAlu.get(i).getNombre()
+                ,cblistaAlu.get(i).getFechaNacimiento()
+                ,cblistaAlu.get(i).isActivo()));
+           
+        }
     }
 
 }

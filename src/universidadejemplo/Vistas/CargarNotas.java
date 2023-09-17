@@ -1,6 +1,5 @@
 package universidadejemplo.Vistas;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.*;
@@ -118,7 +117,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-                dispose();
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

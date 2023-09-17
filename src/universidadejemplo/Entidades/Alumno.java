@@ -84,7 +84,7 @@ public class Alumno {
     
     @Override
        public String toString() {
-           return  "id " + idAlumno + " - " + apellido + ", " + nombre ;
+           return  "Dni: " + dni + " - " + apellido + ", " + nombre ;
        }
 
     public void getFechaNacimiento(LocalDate toLocalDate) {
