@@ -5,17 +5,16 @@ import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.*;
 
-
 public class CargarNotas extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modelo = new DefaultTableModel();
-    
+
     public CargarNotas() {
-        
+
         initComponents();
         armarCabecera();
         cargarCombo();
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -111,13 +110,13 @@ public class CargarNotas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbListaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbListaAlumnosActionPerformed
-        
+
     }//GEN-LAST:event_jcbListaAlumnosActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+
         dispose();
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
@@ -131,15 +130,15 @@ public class CargarNotas extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtAlumnoNota;
     // End of variables declaration//GEN-END:variables
 
-    private void armarCabecera(){
-        
+    private void armarCabecera() {
+
         modelo.addColumn("Codigo");
         modelo.addColumn("Nombre");
         modelo.addColumn("Nota");
         jtAlumnoNota.setModel(modelo);
-        
+
     }
-    
+
     private void cargarCombo() {
 
         AlumnoData ad = new AlumnoData();
@@ -148,10 +147,10 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         for (int i = 0; i < cblistaAlu.size(); i++) {
 
             jcbListaAlumnos.addItem(new Alumno(cblistaAlu.get(i).getDni(),
-                     cblistaAlu.get(i).getApellido(),
-                     cblistaAlu.get(i).getNombre()));
+                    cblistaAlu.get(i).getApellido(),
+                    cblistaAlu.get(i).getNombre()));
 
         }
     }
-    
+
 }
