@@ -180,5 +180,4 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
         }
     }
-
 }
