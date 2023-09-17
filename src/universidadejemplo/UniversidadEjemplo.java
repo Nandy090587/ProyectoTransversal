@@ -2,10 +2,9 @@
 package universidadejemplo;
 
 import java.sql.Date;
-import universidadejemplo.AccesoADatos.AlumnoData;
-import universidadejemplo.AccesoADatos.MateriaData;
+import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.Alumno;
-import universidadejemplo.Entidades.Materia;
+import universidadejemplo.Entidades.*;
 
 public class universidadejemplo {
 
@@ -15,15 +14,11 @@ public class universidadejemplo {
 //        MateriaData md = new MateriaData();
 //        md.guardarMateria(guardarMat);
 //        System.out.println(guardarMat.toString());
-        AlumnoData alum= new AlumnoData();
-        
-        for(Alumno alumno:alum.listarAlumnos()){
-            
-            System.out.println(alumno.toString());
-            System.out.println("------------");
-        
-        }
-        
+//        AlumnoData alum= new AlumnoData()
+//        for(Alumno alumno:alum.listarAlumnos())   
+//            System.out.println(alumno.toString());
+//            System.out.println("------------");
+//        }      
 //        Materia materiaEnc = md.buscarMateria(1);
 //        System.out.println(materiaEnc.toString());
 //        Alumno alu = new Alumno(45666333,"Mansur","Analia",LocalDate.of(2003, 10, 10),true);

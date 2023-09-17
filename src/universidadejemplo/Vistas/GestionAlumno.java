@@ -3,8 +3,8 @@ package universidadejemplo.Vistas;
 
 import java.sql.Date;
 import java.time.ZoneId;
-import universidadejemplo.AccesoADatos.AlumnoData;
-import universidadejemplo.Entidades.Alumno;
+import universidadejemplo.AccesoADatos.*;
+import universidadejemplo.Entidades.*;
 
 public class GestionAlumno extends javax.swing.JInternalFrame {
 

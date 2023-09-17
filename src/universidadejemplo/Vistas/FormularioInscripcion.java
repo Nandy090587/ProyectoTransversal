@@ -3,8 +3,8 @@ package universidadejemplo.Vistas;
 
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import universidadejemplo.AccesoADatos.AlumnoData;
-import universidadejemplo.Entidades.Alumno;
+import universidadejemplo.AccesoADatos.*;
+import universidadejemplo.Entidades.*;
 
 
 public class FormularioInscripcion extends javax.swing.JInternalFrame {

@@ -112,12 +112,12 @@ public class CargarNotas extends javax.swing.JInternalFrame {
 
     private void jcbListaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbListaAlumnosActionPerformed
         
-    
     }//GEN-LAST:event_jcbListaAlumnosActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
         dispose();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
