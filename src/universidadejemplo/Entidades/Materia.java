@@ -26,7 +26,6 @@ public class Materia {
     public Materia() {
     }
 
-
     public int getIdMateria() {
         return idMateria;
     }
