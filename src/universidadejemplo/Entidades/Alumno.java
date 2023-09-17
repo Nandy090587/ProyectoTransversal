@@ -15,7 +15,12 @@ public class Alumno {
     public Alumno() {
     }
 
-   
+    public Alumno(int dni, String apellido, String nombre) {
+        this.dni = dni;
+        this.apellido = apellido;
+        this.nombre = nombre;
+    }
+
     public Alumno(int idAlumno,int dni, String apellido, String nombre, LocalDate fechaNacimiento, boolean activo) {
         this.idAlumno = idAlumno;
         this.dni=dni;

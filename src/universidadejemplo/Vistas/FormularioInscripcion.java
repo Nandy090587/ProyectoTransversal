@@ -174,12 +174,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         
         for(int i = 0 ; i < cblistaAlu.size() ; i++ ){
             
-            jcbListaAlumnos.addItem(new Alumno(cblistaAlu.get(i).getIdAlumno()
-                ,cblistaAlu.get(i).getDni()
+            jcbListaAlumnos.addItem(new Alumno(cblistaAlu.get(i).getDni()
                 ,cblistaAlu.get(i).getApellido()
-                ,cblistaAlu.get(i).getNombre()
-                ,cblistaAlu.get(i).getFechaNacimiento()
-                ,cblistaAlu.get(i).isActivo()));
+                ,cblistaAlu.get(i).getNombre()));
            
         }
     }
