@@ -42,6 +42,12 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("Formulario de Inscripcion");
 
+        jcbListaAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbListaAlumnosActionPerformed(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel2.setText("Seleccione un Alumno");
 
@@ -49,8 +55,18 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jLabel3.setText("Listado de Materias");
 
         jrMateriaNoInscripta.setText("Materias no Inscriptas");
+        jrMateriaNoInscripta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrMateriaNoInscriptaActionPerformed(evt);
+            }
+        });
 
         jrMateriaInscripta.setText("Materias Inscriptas");
+        jrMateriaInscripta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrMateriaInscriptaActionPerformed(evt);
+            }
+        });
 
         jtMateria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -148,6 +164,55 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jrMateriaInscriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMateriaInscriptaActionPerformed
+
+        jrMateriaNoInscripta.setSelected(false);
+        
+        
+        
+           
+
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrMateriaInscriptaActionPerformed
+
+    private void jrMateriaNoInscriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMateriaNoInscriptaActionPerformed
+        Alumno alu=new Alumno();
+        Alumno alu2=jcbListaAlumnos.getItemAt(alu.getIdAlumno());
+       
+        
+//        InscripcionData inc=new InscripcionData();
+//        List<Materia> mostraMaterias=
+        jrMateriaInscripta.setSelected(false);
+        InscripcionData md=new InscripcionData();
+        
+        
+        List<Materia> insc= md.ObtenerMateriasCursadas(alu2.getIdAlumno());
+        
+        //if (InscripcionData = true) {
+            
+       // }
+        
+        
+        
+        
+                
+
+    }//GEN-LAST:event_jrMateriaNoInscriptaActionPerformed
+
+    private void jcbListaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbListaAlumnosActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jcbListaAlumnosActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -188,26 +253,16 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private void cargarDatos(){
 
 
-//
-//        ArrayList<Materia> cagarmat=new ArrayList<>() ;
-//                
-//        for(Materia materia : cagarmat){
-//            modelo.addRow(new Object[]{materia.getIdMateria(),
-//                materia.getNombre(),materia.getAnio()});
-//        }
-//    
-//        MateriaData matData=new MateriaData();
+
+//        MateriaData md= new MateriaData();
+//        List<Materia> cargarmat= md.ListarMaterias();
+//        cargarmat.add(new Materia(1121,"daniel",1,true));
 //        
-//        List<Materia> cargarmat= matData.ListarMaterias();
-        MateriaData md= new MateriaData();
-        List<Materia> cargarmat= md.ListarMaterias();
-        cargarmat.add(new Materia(1121,"daniel",1,true));
-        
-        
-        for(Materia mat: cargarmat ){
-            
-            modelo.addRow(new Object[]{mat.getIdMateria(),
-            mat.getNombre(),mat.getAnio()});
+//        
+//        for(Materia mat: cargarmat ){
+//            
+//            modelo.addRow(new Object[]{mat.getIdMateria(),
+//            mat.getNombre(),mat.getAnio()});
             
         }
     
@@ -218,6 +273,5 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
       
 
 
-        
-    } 
+    
 }
