@@ -178,21 +178,22 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jrMateriaInscriptaActionPerformed
 
     private void jrMateriaNoInscriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMateriaNoInscriptaActionPerformed
+       
         Alumno alu=new Alumno();
         Alumno alu2=jcbListaAlumnos.getItemAt(alu.getIdAlumno());
-       
-        
-//        InscripcionData inc=new InscripcionData();
-//        List<Materia> mostraMaterias=
         jrMateriaInscripta.setSelected(false);
         InscripcionData md=new InscripcionData();
         
         
         List<Materia> insc= md.ObtenerMateriasCursadas(alu2.getIdAlumno());
         
-        //if (InscripcionData = true) {
+        if (jrMateriaNoInscripta.isEnabled()) {
             
-       // }
+            for(){
+            
+            }
+            
+        }
         
         
         

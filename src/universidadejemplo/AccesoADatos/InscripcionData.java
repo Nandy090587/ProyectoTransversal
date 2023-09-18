@@ -121,6 +121,7 @@ public class InscripcionData {
                 inscripcionListAlu.add(insc);
                     
             }
+            
             ps.close();            
             
         } catch (SQLException ex) {
@@ -272,8 +273,7 @@ public class InscripcionData {
             
             JOptionPane.showMessageDialog(null, "Error al Actualizar Nota "+ex.getMessage());
 
-        }
-           
+        }      
     }
     
     public void borrarInscripcionMateriaAlumno(int idAlumno ,int idMateria){
@@ -301,8 +301,6 @@ public class InscripcionData {
             
             JOptionPane.showMessageDialog(null, "Error al Borrar Inscripcion "+ex.getMessage());
             
-        }
-        
+        }  
     }
-    
 }
