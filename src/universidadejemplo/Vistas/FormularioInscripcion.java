@@ -1,10 +1,13 @@
 
 package universidadejemplo.Vistas;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.*;
+
 
 
 public class FormularioInscripcion extends javax.swing.JInternalFrame {
@@ -16,6 +19,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarCombo();
+        cargarDatos();
         
     }
 
@@ -180,4 +184,40 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
         }
     }
+    
+    private void cargarDatos(){
+
+
+//
+//        ArrayList<Materia> cagarmat=new ArrayList<>() ;
+//                
+//        for(Materia materia : cagarmat){
+//            modelo.addRow(new Object[]{materia.getIdMateria(),
+//                materia.getNombre(),materia.getAnio()});
+//        }
+//    
+//        MateriaData matData=new MateriaData();
+//        
+//        List<Materia> cargarmat= matData.ListarMaterias();
+        MateriaData md= new MateriaData();
+        List<Materia> cargarmat= md.ListarMaterias();
+        cargarmat.add(new Materia(1121,"daniel",1,true));
+        
+        
+        for(Materia mat: cargarmat ){
+            
+            modelo.addRow(new Object[]{mat.getIdMateria(),
+            mat.getNombre(),mat.getAnio()});
+            
+        }
+    
+//        for (int i= 0 ; i < cargarmat.size();i++) {
+  //          jcbListaAlumnos
+  //       }
+
+      
+
+
+        
+    } 
 }

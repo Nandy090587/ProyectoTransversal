@@ -14,6 +14,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarCombo();
+        cargarDatos();
 
     }
 
@@ -152,5 +153,17 @@ public class CargarNotas extends javax.swing.JInternalFrame {
 
         }
     }
+    
+    private void cargarDatos(){
+    
+        InscripcionData id=new InscripcionData();
+      //  List<Inscripcion> verNota= id.actualizarNota(WIDTH, WIDTH, WIDTH);
+        
+        
+        
+        
+}
+    
+    
 
 }
