@@ -167,14 +167,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private void jrMateriaInscriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMateriaInscriptaActionPerformed
 
         jrMateriaNoInscripta.setSelected(false);
-        
-        
-        
-           
 
-
-
-        // TODO add your handling code here:
     }//GEN-LAST:event_jrMateriaInscriptaActionPerformed
 
     private void jrMateriaNoInscriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMateriaNoInscriptaActionPerformed
@@ -184,33 +177,21 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jrMateriaInscripta.setSelected(false);
         InscripcionData md=new InscripcionData();
         
-        
         List<Materia> insc= md.ObtenerMateriasCursadas(alu2.getIdAlumno());
         
         if (jrMateriaNoInscripta.isEnabled()) {
             
-            for(){
-            
-            }
-            
-        }
-        
-        
-        
-        
+            for(Materia mat:insc){
                 
-
+                modelo.addRow(new Object[]{mat.getIdMateria(),
+                mat.getNombre(),mat.getAnio()});
+                
+            }          
+        }    
     }//GEN-LAST:event_jrMateriaNoInscriptaActionPerformed
 
     private void jcbListaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbListaAlumnosActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-        
-        
-        
-        
+        // TODO add your handling code here:  
         
     }//GEN-LAST:event_jcbListaAlumnosActionPerformed
 

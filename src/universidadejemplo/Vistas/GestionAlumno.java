@@ -9,6 +9,7 @@ import universidadejemplo.Entidades.*;
 public class GestionAlumno extends javax.swing.JInternalFrame {
 
     public GestionAlumno() {
+        
         initComponents();
          
     }

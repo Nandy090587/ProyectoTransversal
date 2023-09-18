@@ -27,7 +27,11 @@ public class InscripcionData {
     
     
 
-    public InscripcionData(){}
+    public InscripcionData() {
+        
+        con = Conexion.getConexion();
+    
+    }
     
     public void guardarInscripcion(Inscripcion ins){
        
@@ -228,7 +232,6 @@ public class InscripcionData {
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setActivo(rs.getBoolean("estado"));
                 alumnoMateria.add(alumno);
-                
                 
                 JOptionPane.showMessageDialog(null, "");
                 
