@@ -273,7 +273,7 @@ public class InscripcionData {
     
     public void borrarInscripcionMateriaAlumno(int idAlumno ,int idMateria){
    
-        String sql="DELETE FROM inscripcion WHERE idAlumno = ? and idMateria = ? ";
+        String sql="DELETE FROM inscripcion WHERE idAlumno = ? and idMateria = ?";
         
         try {
             
@@ -285,12 +285,11 @@ public class InscripcionData {
             
             if (filas>0) {
                 
-                JOptionPane.showMessageDialog(null, "Inscripcion Borrada Correctamente ");
+                JOptionPane.showMessageDialog(null, "Inscripcion borrada Correctamente ");
                 
             }
             
             ps.close();
-            
             
         } catch (SQLException ex) {
             

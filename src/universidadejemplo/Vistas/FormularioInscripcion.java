@@ -1,10 +1,7 @@
 
 package universidadejemplo.Vistas;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.*;
@@ -262,7 +259,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         InscripcionData md = new InscripcionData();
 
         if (jrMateriaNoInscripta.isSelected()) {
-
+            
+            jbInscribir.setEnabled(true);
+            jbNoInscribir.setEnabled(false);
             List<Materia> noInsc = md.ObtenerMateriasNOCursadas(selectedID);
             modelo.setRowCount(0);
 
@@ -275,7 +274,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         }
 
         if (jrMateriaInscripta.isSelected()) {
-
+            
+            jbNoInscribir.setEnabled(true);
+            jbInscribir.setEnabled(false);
             modelo.setRowCount(0);
             List<Materia> insc = md.ObtenerMateriasCursadas(selectedID);
 
