@@ -10,6 +10,9 @@ public class universidadejemplo {
 
     public static void main(String[] args) {
         
+        InscripcionData ins = new InscripcionData();
+        ins.ObtenerMateriasNOCursadas(2);
+       
 //        Materia guardarMat = new Materia("Civica",3,true);
 //        MateriaData md = new MateriaData();
 //        md.guardarMateria(guardarMat);

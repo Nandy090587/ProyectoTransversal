@@ -14,8 +14,6 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarCombo();
-        cargarDatos();
-
     }
 
     @SuppressWarnings("unchecked")
@@ -147,23 +145,10 @@ public class CargarNotas extends javax.swing.JInternalFrame {
 
         for (int i = 0; i < cblistaAlu.size(); i++) {
 
-            jcbListaAlumnos.addItem(new Alumno(cblistaAlu.get(i).getDni(),
+            jcbListaAlumnos.addItem(new Alumno(cblistaAlu.get(i).getIdAlumno(),cblistaAlu.get(i).getDni(),
                     cblistaAlu.get(i).getApellido(),
                     cblistaAlu.get(i).getNombre()));
 
         }
     }
-    
-    private void cargarDatos(){
-    
-        InscripcionData id=new InscripcionData();
-      //  List<Inscripcion> verNota= id.actualizarNota(WIDTH, WIDTH, WIDTH);
-        
-        
-        
-        
-}
-    
-    
-
 }

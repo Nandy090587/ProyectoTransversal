@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import universidadejemplo.Entidades.Alumno;
 import universidadejemplo.Entidades.Inscripcion;
@@ -22,10 +20,6 @@ public class InscripcionData {
     private AlumnoData aluData;
     private AlumnoData ad=new AlumnoData();
     private MateriaData md=new MateriaData();
-    
-    
-    
-    
 
     public InscripcionData() {
         
@@ -86,7 +80,6 @@ public class InscripcionData {
                 inscripcion.setNota(rs.getDouble("Nota"));
                 inscripcion.getAlumno().setIdAlumno(rs.getInt("IdAlumno"));
                 inscripcion.getMateria().setIdMateria(rs.getInt("IdMateria"));
-
                 inscripcionList.add(inscripcion);
 
             }
@@ -141,8 +134,9 @@ public class InscripcionData {
 
         ArrayList<Materia> materiasCursadas = new ArrayList<>();
         
-        String sql = "SELECT inscripcion.idMateria, nombre,año FROM inscripcion,"
-                + "materia WHERE inscripcion.idMateria = materia.idMateria" + "AND inscricion.idAlumno = ?;";
+        String sql = "SELECT inscripcion.idMateria, nombre, año FROM inscripcion, "
+                + "materia WHERE inscripcion.idMateria = materia.idMateria "
+                + "AND inscripcion.idAlumno = ?";
         
         try {
            
@@ -159,8 +153,7 @@ public class InscripcionData {
              
                materiasCursadas.add(materia);
             }
-            
-            JOptionPane.showMessageDialog(null,"Lista cargada con exito");
+           
             ps.close();
 
         } catch (SQLException ex) {
@@ -177,8 +170,8 @@ public class InscripcionData {
 
         ArrayList<Materia> materiasNOCursadas = new ArrayList<>();
         
-        String sql = "SELECT * FROM materia WHERE estado = 1 and idmateria not in" +
-                "(SELECT idMateria FROM inscripcion WHERE idAlumno = ?";
+        String sql = "SELECT * FROM materia WHERE estado = 1 and idMateria not in" 
+                + "(SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
         
         try {
            
@@ -195,8 +188,7 @@ public class InscripcionData {
              
                materiasNOCursadas.add(materia);
             }
-            
-            JOptionPane.showMessageDialog(null,"Lista cargada con exito");
+
             ps.close();
 
         } catch (SQLException ex) {
