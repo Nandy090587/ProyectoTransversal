@@ -180,19 +180,19 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
        
         dispose();
-        
+
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jrMateriaInscriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMateriaInscriptaActionPerformed
-        
+
         llenarLista();
- 
+
     }//GEN-LAST:event_jrMateriaInscriptaActionPerformed
 
     private void jrMateriaNoInscriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMateriaNoInscriptaActionPerformed
-           
+
         llenarLista();
-        
+
     }//GEN-LAST:event_jrMateriaNoInscriptaActionPerformed
 
     private void jcbListaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbListaAlumnosActionPerformed
@@ -262,30 +262,30 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         InscripcionData md = new InscripcionData();
 
         if (jrMateriaNoInscripta.isSelected()) {
-         
+
             List<Materia> noInsc = md.ObtenerMateriasNOCursadas(selectedID);
             modelo.setRowCount(0);
 
             for (Materia mat : noInsc) {
 
                 modelo.addRow(new Object[]{mat.getIdMateria(),
-                    mat.getNombre(), mat.getAnio()});   
+                    mat.getNombre(), mat.getAnio()});
 
             }
         }
-        
-            if (jrMateriaInscripta.isSelected()) {
-                
-                modelo.setRowCount(0);
-                List<Materia> insc = md.ObtenerMateriasCursadas(selectedID);
 
-                for (Materia mat : insc) {
+        if (jrMateriaInscripta.isSelected()) {
 
-                    modelo.addRow(new Object[]{mat.getIdMateria(),
-                        mat.getNombre(), mat.getAnio()});
+            modelo.setRowCount(0);
+            List<Materia> insc = md.ObtenerMateriasCursadas(selectedID);
 
-                }
-            }  
+            for (Materia mat : insc) {
+
+                modelo.addRow(new Object[]{mat.getIdMateria(),
+                    mat.getNombre(), mat.getAnio()});
+
+            }
+        }
     }
 }
 
