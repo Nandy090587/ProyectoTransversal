@@ -19,7 +19,10 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         cargarCombo();
         
     }
-
+    
+    InscripcionData id = new InscripcionData();
+    AlumnoData ad = new AlumnoData();
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -86,18 +89,36 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
         jtMateria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jtMateria);
+        if (jtMateria.getColumnModel().getColumnCount() > 0) {
+            jtMateria.getColumnModel().getColumn(0).setResizable(false);
+        }
 
         jbInscribir.setText("Inscribir");
+        jbInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInscribirActionPerformed(evt);
+            }
+        });
 
         jbNoInscribir.setText("Anular Inscripcion");
 
@@ -118,34 +139,33 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 .addGap(44, 44, 44)
                 .addComponent(jcbListaAlumnos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jbInscribir)
-                        .addGap(68, 68, 68)
-                        .addComponent(jbNoInscribir, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbSalir)))
-                .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(109, 109, 109))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jrMateriaInscripta)
+                .addGap(48, 48, 48)
+                .addComponent(jrMateriaNoInscripta)
+                .addGap(82, 82, 82))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(133, 133, 133))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jrMateriaInscripta)
-                        .addGap(48, 48, 48)
-                        .addComponent(jrMateriaNoInscripta)
-                        .addGap(82, 82, 82))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(23, 23, 23)
+                            .addComponent(jbInscribir)
+                            .addGap(68, 68, 68)
+                            .addComponent(jbNoInscribir, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jbSalir)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(jLabel3)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,9 +175,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbListaAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(33, 33, 33)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jrMateriaNoInscripta)
                     .addComponent(jrMateriaInscripta))
@@ -213,6 +233,12 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jcbListaAlumnosItemStateChanged
 
+    private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
+        Inscripcion ins =new Inscripcion();
+        int fila = jtMateria.getSelectedRow();
+        
+    }//GEN-LAST:event_jbInscribirActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -239,7 +265,6 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     
     private void cargarCombo() {
 
-        AlumnoData ad = new AlumnoData();
         List<Alumno> cblistaAlu = ad.listarAlumnos();
         
         for (int i = 0; i < cblistaAlu.size(); i++) {
@@ -256,13 +281,12 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         
         Alumno selectedItem = (Alumno) jcbListaAlumnos.getSelectedItem();
         int selectedID = selectedItem.getIdAlumno();
-        InscripcionData md = new InscripcionData();
 
         if (jrMateriaNoInscripta.isSelected()) {
             
             jbInscribir.setEnabled(true);
             jbNoInscribir.setEnabled(false);
-            List<Materia> noInsc = md.ObtenerMateriasNOCursadas(selectedID);
+            List<Materia> noInsc = id.ObtenerMateriasNOCursadas(selectedID);
             modelo.setRowCount(0);
 
             for (Materia mat : noInsc) {
@@ -278,7 +302,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
             jbNoInscribir.setEnabled(true);
             jbInscribir.setEnabled(false);
             modelo.setRowCount(0);
-            List<Materia> insc = md.ObtenerMateriasCursadas(selectedID);
+            List<Materia> insc = id.ObtenerMateriasCursadas(selectedID);
 
             for (Materia mat : insc) {
 
