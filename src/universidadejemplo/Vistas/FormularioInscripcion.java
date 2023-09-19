@@ -244,7 +244,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
             int selectID = itemSelec.getIdAlumno();
             Alumno aID = ad.buscarAlumno(selectID);
             Materia mID = md.buscarMateria((int) jtMateria.getValueAt(fila, 0));
-            Inscripcion ins = new Inscripcion(aID, mID, 0);
+            Inscripcion ins = new Inscripcion(aID, mID);
             id.guardarInscripcion(ins);
 
         }else{

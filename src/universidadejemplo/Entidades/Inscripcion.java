@@ -1,7 +1,6 @@
 
 package universidadejemplo.Entidades;
 
-
 public class Inscripcion {
     
     private int idInscripcion;
@@ -10,6 +9,11 @@ public class Inscripcion {
     private double nota;
 
     public Inscripcion() {
+    }
+
+    public Inscripcion(Alumno alumno, Materia materia) {
+        this.alumno = alumno;
+        this.materia = materia;
     }
 
     public Inscripcion(int idInscripcion, Alumno alumno, Materia materia, double nota) {

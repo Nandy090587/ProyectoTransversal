@@ -72,6 +72,7 @@ public class MateriaData {
             if (rs.next()) {
                 
                 materia=new Materia();
+                materia.setIdMateria(id);
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("año"));
                 materia.setEstado(true);
