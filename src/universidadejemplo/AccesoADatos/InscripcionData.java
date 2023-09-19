@@ -34,7 +34,7 @@ public class InscripcionData {
         try {
             
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-           
+            
             ps.setInt(1, ins.getAlumno().getIdAlumno());
             ps.setInt(2, ins.getMateria().getIdMateria());
 //            ps.setDouble(3, ins.getNota());

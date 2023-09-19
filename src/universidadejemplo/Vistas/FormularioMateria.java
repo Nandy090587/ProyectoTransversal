@@ -1,6 +1,7 @@
 
 package universidadejemplo.Vistas;
 
+import javax.swing.JOptionPane;
 import universidadejemplo.AccesoADatos.MateriaData;
 import universidadejemplo.Entidades.Materia;
 
@@ -180,17 +181,20 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         
+        try {
+            Materia buscarMat = md.buscarMateria(Integer.parseInt(jtCodigo.getText()));
 
-        Materia buscarMat = md.buscarMateria(Integer.parseInt(jtCodigo.getText()));
-        
-        if(buscarMat!=null){
+            if (buscarMat != null) {
+
+                jtNombre.setText(buscarMat.getNombre());
+                jtAnio.setText(buscarMat.getAnio() + "");
+                jrEstado.setSelected(buscarMat.isEstado());
+
+            }
+        }catch(NumberFormatException ex) {
             
-            jtNombre.setText(buscarMat.getNombre());
-            jtAnio.setText(buscarMat.getAnio()+"");
-            jrEstado.setSelected(buscarMat.isEstado());
-            
+            JOptionPane.showMessageDialog(null, "Ingrese un numero entero");
         }
-        
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
