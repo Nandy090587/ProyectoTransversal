@@ -29,7 +29,7 @@ public class InscripcionData {
     
     public void guardarInscripcion(Inscripcion ins){
        
-        String sql="INSERT INTO inscripcion(idAlumno,idMateria,nota) VALUES (?,?,?)";
+        String sql="INSERT INTO inscripcion( idAlumno , idMateria , nota ) VALUES ( ? , ? , ? )";
         
         try {
             
@@ -38,10 +38,11 @@ public class InscripcionData {
             ps.setInt(1, ins.getAlumno().getIdAlumno());
             ps.setInt(2, ins.getMateria().getIdMateria());
             ps.setDouble(3, ins.getNota());
-            ps.executeUpdate();
-
-            ResultSet rs = ps.getGeneratedKeys();
             
+            ps.executeUpdate();
+            System.out.println("**");
+            ResultSet rs = ps.getGeneratedKeys();
+           
             if (rs.next()) {
                 
                 ins.setIdInscripcion(rs.getInt(1));
