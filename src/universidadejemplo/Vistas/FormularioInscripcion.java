@@ -2,6 +2,7 @@
 package universidadejemplo.Vistas;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.*;
@@ -19,9 +20,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         cargarCombo();
         
     }
-    
+    MateriaData md = new MateriaData();
     InscripcionData id = new InscripcionData();
-    AlumnoData ad = new AlumnoData();
+    AlumnoData ad = new AlumnoData();    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -234,9 +235,23 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcbListaAlumnosItemStateChanged
 
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
-        Inscripcion ins =new Inscripcion();
+        
         int fila = jtMateria.getSelectedRow();
         
+        if (fila >= 0) {
+
+            Alumno itemSelec = (Alumno) jcbListaAlumnos.getSelectedItem();
+            int selectID = itemSelec.getIdAlumno();
+            Alumno aID = ad.buscarAlumno(selectID);
+            Materia mID = md.buscarMateria((int) jtMateria.getValueAt(fila, 0));
+            Inscripcion ins = new Inscripcion(aID, mID, 0);
+            id.guardarInscripcion(ins);
+
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "Eliga una fila");
+        
+        }
     }//GEN-LAST:event_jbInscribirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -279,14 +294,14 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     
     private void llenarLista() {
         
-        Alumno selectedItem = (Alumno) jcbListaAlumnos.getSelectedItem();
-        int selectedID = selectedItem.getIdAlumno();
+        Alumno itemSelec = (Alumno) jcbListaAlumnos.getSelectedItem();
+        int selectID = itemSelec.getIdAlumno();
 
         if (jrMateriaNoInscripta.isSelected()) {
             
             jbInscribir.setEnabled(true);
             jbNoInscribir.setEnabled(false);
-            List<Materia> noInsc = id.ObtenerMateriasNOCursadas(selectedID);
+            List<Materia> noInsc = id.ObtenerMateriasNOCursadas(selectID);
             modelo.setRowCount(0);
 
             for (Materia mat : noInsc) {
@@ -302,7 +317,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
             jbNoInscribir.setEnabled(true);
             jbInscribir.setEnabled(false);
             modelo.setRowCount(0);
-            List<Materia> insc = id.ObtenerMateriasCursadas(selectedID);
+            List<Materia> insc = id.ObtenerMateriasCursadas(selectID);
 
             for (Materia mat : insc) {
 

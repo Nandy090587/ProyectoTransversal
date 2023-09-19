@@ -10,14 +10,19 @@ public class universidadejemplo {
 
     public static void main(String[] args) {
         
-        InscripcionData ins = new InscripcionData();
-        ins.ObtenerMateriasNOCursadas(2);
-       
+        InscripcionData id = new InscripcionData();
+        AlumnoData ad= new AlumnoData();
+        MateriaData md = new MateriaData();
+//        InscripcionData ins = new InscripcionData();
+//        ins.ObtenerMateriasNOCursadas(2);
+        Alumno aID = ad.buscarAlumno(1);
+        Materia mID = md.buscarMateria(2);
+        Inscripcion ins = new Inscripcion(aID, mID, 9);
+        id.guardarInscripcion(ins);
+
 //        Materia guardarMat = new Materia("Civica",3,true);
-//        MateriaData md = new MateriaData();
 //        md.guardarMateria(guardarMat);
-//        System.out.println(guardarMat.toString());
-//        AlumnoData alum= new AlumnoData()
+//        System.out.println(guardarMat.toString());     
 //        for(Alumno alumno:alum.listarAlumnos())   
 //            System.out.println(alumno.toString());
 //            System.out.println("------------");

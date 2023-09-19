@@ -29,17 +29,16 @@ public class InscripcionData {
     
     public void guardarInscripcion(Inscripcion ins){
        
-        String sql="INSERT INTO inscripcion (nota,idAlumno,idMateria)VALUES(?,?,?)";
-        
-        PreparedStatement ps;
+        String sql="INSERT INTO inscripcion(idAlumno,idMateria,nota) VALUES (?,?,?)";
         
         try {
             
-            ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-
-            ps.setDouble(1, ins.getNota());
-            ps.setInt(2, ins.getAlumno().getIdAlumno());
-            ps.setInt(3, ins.getMateria().getIdMateria());
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+           
+            ps.setInt(1, ins.getAlumno().getIdAlumno());
+            ps.setInt(2, ins.getMateria().getIdMateria());
+            ps.setDouble(3, ins.getNota());
+            ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
             
