@@ -43,6 +43,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtAlumnoNota.setCellSelectionEnabled(true);
         jScrollPane1.setViewportView(jtAlumnoNota);
         if (jtAlumnoNota.getColumnModel().getColumnCount() > 0) {
             jtAlumnoNota.getColumnModel().getColumn(3).setResizable(false);
@@ -151,4 +152,21 @@ public class CargarNotas extends javax.swing.JInternalFrame {
 
         }
     }
+//        private void cargarLista(){
+//
+//            AlumnoData ad = new AlumnoData();
+//            Alumno itemSelec = (Alumno) jcbListaAlumnos.getSelectedItem();
+//            int selectID = itemSelec.getIdAlumno();
+//            
+//            MateriaData md = new MateriaData();
+//            List<Materia> inscod = md.buscarMateria((int)jcbListaMateria.getSelectedItem());
+//            InscripcionData id = new InscripcionData();
+//            List<Inscripcion> insNotas = id.ObternerInscripcionesPorAlumno((int) jcbListaAlumnos.getSelectedItem());
+//            modelo.setRowCount(0);
+//
+//            for (Inscripcion ins : insNotas){
+//
+//                modelo.addRow(new Object[]{ins.g(),
+//                    mat.getNombre(), mat.getAnio()}); 
+//        }
 }
