@@ -123,6 +123,7 @@ public class AlumnoData {
                 alumno.setNombre(rs.getString ("nombre"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setActivo(true);
+                JOptionPane.showMessageDialog(null,"Alumno encontrado");
                 
             }else{
                 

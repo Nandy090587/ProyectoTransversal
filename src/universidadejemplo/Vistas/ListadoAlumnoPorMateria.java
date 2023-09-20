@@ -134,5 +134,11 @@ private void armarCabecera(){
 
         }
     }
-
+    
+    private void cargarLista() {
+    
+        Materia itemSelec = (Materia) jcbListaMaterias.getSelectedItem();
+        int selectID = itemSelec.getIdMateria();
+    
+    }
 }

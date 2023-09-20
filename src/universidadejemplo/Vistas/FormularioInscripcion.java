@@ -247,9 +247,10 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
             Alumno itemSelec = (Alumno) jcbListaAlumnos.getSelectedItem();
             int selectID = itemSelec.getIdAlumno();
+            JOptionPane.showMessageDialog(null, selectID);
             Alumno aID = ad.buscarAlumno(selectID);
             Materia mID = md.buscarMateria((int) jtMateria.getValueAt(fila, 0));
-            Inscripcion ins = new Inscripcion(aID, mID);
+            Inscripcion ins = new Inscripcion(aID, mID, 0);
             id.guardarInscripcion(ins);
 
         }else{
