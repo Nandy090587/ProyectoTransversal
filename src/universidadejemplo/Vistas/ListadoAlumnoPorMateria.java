@@ -2,7 +2,6 @@
 package universidadejemplo.Vistas;
 
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.*;
@@ -126,7 +125,6 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
                 
     }//GEN-LAST:event_jcbListaMateriasItemStateChanged
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -136,14 +134,14 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtTablaMateria;
     // End of variables declaration//GEN-END:variables
 
-private void armarCabecera(){
-        
+    private void armarCabecera() {
+
         modelo.addColumn("IdAlumno");
         modelo.addColumn("Dni");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
         jtTablaMateria.setModel(modelo);
-        
+
     }
 
     private void cargarCombo() {
