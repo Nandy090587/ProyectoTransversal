@@ -10,7 +10,7 @@ public class universidadejemplo {
 
     public static void main(String[] args) {
         
-        InscripcionData id = new InscripcionData();
+//        InscripcionData id = new InscripcionData();
         AlumnoData ad= new AlumnoData();
         MateriaData md = new MateriaData();
 //        InscripcionData ins = new InscripcionData();
@@ -18,8 +18,6 @@ public class universidadejemplo {
         Alumno aID = ad.buscarAlumno(4);
         Materia mID = md.buscarMateria(2);
         Inscripcion ins = new Inscripcion(aID, mID);
-        id.guardarInscripcion(ins);
-
 //        Materia guardarMat = new Materia("Civica",3,true);
 //        md.guardarMateria(guardarMat);
 //        System.out.println(guardarMat.toString());     

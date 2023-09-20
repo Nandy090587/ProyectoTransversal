@@ -122,6 +122,11 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         });
 
         jbNoInscribir.setText("Anular Inscripcion");
+        jbNoInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNoInscribirActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -253,6 +258,23 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         
         }
     }//GEN-LAST:event_jbInscribirActionPerformed
+
+    private void jbNoInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNoInscribirActionPerformed
+        
+        int fila = jtMateria.getSelectedRow();
+        
+        if (fila >= 0) {
+
+            Alumno itemSelec = (Alumno) jcbListaAlumnos.getSelectedItem();
+            int selectID = itemSelec.getIdAlumno();
+            id.borrarInscripcionMateriaAlumno(selectID, (int) jtMateria.getValueAt(fila, 0));
+
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "Eliga una fila");
+        
+        } 
+    }//GEN-LAST:event_jbNoInscribirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
