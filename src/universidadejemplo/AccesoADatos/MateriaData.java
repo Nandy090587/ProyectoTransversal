@@ -154,7 +154,7 @@ public class MateriaData {
         
         ArrayList<Materia> materiaList = new ArrayList<>();
         
-            String sql="SELECT * FROM materia WHERE estado=1";
+            String sql="SELECT idMateria, nombre, año, estado FROM materia WHERE estado = 1";
                 
         try {
             
@@ -164,10 +164,10 @@ public class MateriaData {
             while(rs.next()){
                 
                 Materia materia = new Materia();
-                materia.setIdMateria(rs.getInt("IdMateria"));
+                materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("año"));
-                materia.setEstado(true);
+                materia.setEstado(rs.getBoolean("estado"));
                 
                 materiaList.add(materia);
                 

@@ -2,6 +2,7 @@
 package universidadejemplo;
 
 import java.sql.Date;
+import java.util.List;
 import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.Alumno;
 import universidadejemplo.Entidades.*;
@@ -10,14 +11,20 @@ public class universidadejemplo {
 
     public static void main(String[] args) {
         
-//        InscripcionData id = new InscripcionData();
-        AlumnoData ad= new AlumnoData();
-        MateriaData md = new MateriaData();
+        InscripcionData id = new InscripcionData();
+//        AlumnoData ad= new AlumnoData();
+//        MateriaData md = new MateriaData();
+        List<Alumno> lista =id.obtenerAlumnosXMateria(2);
+        for(Alumno alu:lista){
+        
+            System.out.println(alu.toString());
+            
+        }
 //        InscripcionData ins = new InscripcionData();
 //        ins.ObtenerMateriasNOCursadas(2);
-        Alumno aID = ad.buscarAlumno(4);
-        Materia mID = md.buscarMateria(2);
-        Inscripcion ins = new Inscripcion(aID, mID, 0);
+//        Alumno aID = ad.buscarAlumno(4);
+//        Materia mID = md.buscarMateria(2);
+//        Inscripcion ins = new Inscripcion(aID, mID, 0);
 //        Materia guardarMat = new Materia("Civica",3,true);
 //        md.guardarMateria(guardarMat);
 //        System.out.println(guardarMat.toString());     

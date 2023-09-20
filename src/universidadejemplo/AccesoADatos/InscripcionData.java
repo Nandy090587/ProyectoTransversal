@@ -204,27 +204,26 @@ public class InscripcionData {
            
         ArrayList<Alumno> alumnoMateria=new ArrayList<>();
     
-        String slq="SELECT a.idAlumno, dni, nombre, apellido, fechaNacimiento. estado "
+        String sql="SELECT a.idAlumno, dni, nombre, apellido, fechaNacimiento, estado "
                 +"FROM inscripcion i,alumno a WHERE i.idAlumno = a.idAlumno and idMateria = ? and a.estado = 1 ";
         
         try {
             
-            PreparedStatement ps=con.prepareStatement(slq);
+            PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1, idMateria);
             
-            ResultSet rs=ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
             
             while (rs.next()) { 
                 
                 Alumno alumno=new Alumno();
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setActivo(rs.getBoolean("estado"));
                 alumnoMateria.add(alumno);
-                
-                JOptionPane.showMessageDialog(null, "");
                 
             }
             

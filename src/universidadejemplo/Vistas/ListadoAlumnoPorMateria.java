@@ -2,12 +2,10 @@
 package universidadejemplo.Vistas;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import universidadejemplo.AccesoADatos.AlumnoData;
-import universidadejemplo.AccesoADatos.MateriaData;
-import universidadejemplo.Entidades.Alumno;
-import universidadejemplo.Entidades.Materia;
-
+import universidadejemplo.AccesoADatos.*;
+import universidadejemplo.Entidades.*;
 
 public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
 
@@ -18,7 +16,11 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarCombo();
+        
     }
+    
+    InscripcionData id = new InscripcionData();
+    MateriaData md = new MateriaData();
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -26,10 +28,10 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jcbListaMaterias = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTablaMateria = new javax.swing.JTable();
         jbSalir = new javax.swing.JButton();
+        jcbListaMaterias = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("Listado de Alumno por Materia");
@@ -57,6 +59,17 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
             }
         });
 
+        jcbListaMaterias.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcbListaMateriasItemStateChanged(evt);
+            }
+        });
+        jcbListaMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbListaMateriasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,18 +78,19 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93)
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jcbListaMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbSalir)
-                        .addGap(20, 20, 20))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(59, 59, 59)
-                                .addComponent(jcbListaMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(20, 20, 20))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,8 +98,8 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbListaMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jcbListaMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbSalir)
@@ -102,6 +116,16 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jcbListaMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbListaMateriasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbListaMateriasActionPerformed
+
+    private void jcbListaMateriasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbListaMateriasItemStateChanged
+        
+        cargarLista();
+                
+    }//GEN-LAST:event_jcbListaMateriasItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -114,31 +138,38 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
 
 private void armarCabecera(){
         
-        modelo.addColumn("IdMateria");
+        modelo.addColumn("IdAlumno");
+        modelo.addColumn("Dni");
         modelo.addColumn("Nombre");
-        modelo.addColumn("Anio");
-        modelo.addColumn("Estado");
+        modelo.addColumn("Apellido");
         jtTablaMateria.setModel(modelo);
         
     }
 
     private void cargarCombo() {
 
-        MateriaData md = new MateriaData();
         List<Materia> cblistaMat = md.ListarMaterias();
 
         for (int i = 0; i < cblistaMat.size(); i++) {
 
-            jcbListaMaterias.addItem(new Materia(cblistaMat.get(i).getNombre(),
-                     cblistaMat.get(i).getAnio()));
+            jcbListaMaterias.addItem(new Materia(cblistaMat.get(i).getIdMateria(),cblistaMat.get(i).getNombre(),
+                     cblistaMat.get(i).getAnio(),cblistaMat.get(i).isEstado()));
 
         }
     }
     
     private void cargarLista() {
-    
-        Materia itemSelec = (Materia) jcbListaMaterias.getSelectedItem();
-        int selectID = itemSelec.getIdMateria();
-    
+          
+        Materia itemSele = (Materia) jcbListaMaterias.getSelectedItem();
+        int selectID = itemSele.getIdMateria();
+        List<Alumno> Insc = id.obtenerAlumnosXMateria(selectID);
+        modelo.setRowCount(0);
+
+            for (Alumno alu : Insc) {
+
+                modelo.addRow(new Object[]{alu.getIdAlumno(),
+                    alu.getDni(), alu.getNombre(), alu.getApellido()});
+              
+            }        
     }
 }
