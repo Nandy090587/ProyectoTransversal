@@ -17,7 +17,7 @@ public class universidadejemplo {
 //        ins.ObtenerMateriasNOCursadas(2);
         Alumno aID = ad.buscarAlumno(4);
         Materia mID = md.buscarMateria(2);
-        Inscripcion ins = new Inscripcion(aID, mID);
+        Inscripcion ins = new Inscripcion(aID, mID, 0);
 //        Materia guardarMat = new Materia("Civica",3,true);
 //        md.guardarMateria(guardarMat);
 //        System.out.println(guardarMat.toString());     
