@@ -20,6 +20,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         cargarCombo();
         
     }
+    
     MateriaData md = new MateriaData();
     InscripcionData id = new InscripcionData();
     AlumnoData ad = new AlumnoData();    
