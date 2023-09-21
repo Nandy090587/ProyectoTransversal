@@ -49,11 +49,6 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 jcbListaAlumnosItemStateChanged(evt);
             }
         });
-        jcbListaAlumnos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbListaAlumnosActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel2.setText("Seleccione un Alumno");
@@ -64,16 +59,6 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jbGrupoMat.add(jrMateriaNoInscripta);
         jrMateriaNoInscripta.setSelected(true);
         jrMateriaNoInscripta.setText("Materias no Inscriptas");
-        jrMateriaNoInscripta.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jrMateriaNoInscriptaItemStateChanged(evt);
-            }
-        });
-        jrMateriaNoInscripta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jrMateriaNoInscriptaMouseClicked(evt);
-            }
-        });
         jrMateriaNoInscripta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jrMateriaNoInscriptaActionPerformed(evt);
@@ -218,21 +203,6 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jrMateriaNoInscriptaActionPerformed
 
-    private void jcbListaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbListaAlumnosActionPerformed
-        // TODO add your handling code here:  
-        
-    }//GEN-LAST:event_jcbListaAlumnosActionPerformed
-
-    private void jrMateriaNoInscriptaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jrMateriaNoInscriptaMouseClicked
-        
-        
-    }//GEN-LAST:event_jrMateriaNoInscriptaMouseClicked
-
-    private void jrMateriaNoInscriptaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jrMateriaNoInscriptaItemStateChanged
-       
-        
-    }//GEN-LAST:event_jrMateriaNoInscriptaItemStateChanged
-
     private void jcbListaAlumnosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbListaAlumnosItemStateChanged
 
         llenarLista();
@@ -247,7 +217,6 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
             Alumno itemSelec = (Alumno) jcbListaAlumnos.getSelectedItem();
             int selectID = itemSelec.getIdAlumno();
-            JOptionPane.showMessageDialog(null, selectID);
             Alumno aID = ad.buscarAlumno(selectID);
             Materia mID = md.buscarMateria((int) jtMateria.getValueAt(fila, 0));
             Inscripcion ins = new Inscripcion(aID, mID, 0);

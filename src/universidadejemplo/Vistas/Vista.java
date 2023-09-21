@@ -130,11 +130,6 @@ public class Vista extends javax.swing.JFrame {
                 jmSalirMouseClicked(evt);
             }
         });
-        jmSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmSalirActionPerformed(evt);
-            }
-        });
         jMenuBar1.add(jmSalir);
 
         setJMenuBar(jMenuBar1);
@@ -205,10 +200,6 @@ public class Vista extends javax.swing.JFrame {
         escritorio.add(cn);
         escritorio.moveToFront(cn);
     }//GEN-LAST:event_jmManiNotasActionPerformed
-
-    private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
-         
-    }//GEN-LAST:event_jmSalirActionPerformed
 
     private void jmSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmSalirMouseClicked
         

@@ -63,11 +63,6 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
                 jcbListaMateriasItemStateChanged(evt);
             }
         });
-        jcbListaMaterias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbListaMateriasActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,10 +109,6 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
         dispose();
         
     }//GEN-LAST:event_jbSalirActionPerformed
-
-    private void jcbListaMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbListaMateriasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcbListaMateriasActionPerformed
 
     private void jcbListaMateriasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbListaMateriasItemStateChanged
         

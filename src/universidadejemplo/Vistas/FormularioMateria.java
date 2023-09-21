@@ -182,6 +182,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         
         try {
+            
             Materia buscarMat = md.buscarMateria(Integer.parseInt(jtCodigo.getText()));
 
             if (buscarMat != null) {
@@ -199,7 +200,6 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
        
-
         Materia guardarMat = new Materia();
         
         guardarMat.setNombre(jtNombre.getText());
@@ -207,8 +207,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         guardarMat.setEstado(jrEstado.isSelected());
         
         md.guardarMateria(guardarMat);
-        
-        
+              
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
@@ -225,7 +224,6 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jrEstado.setSelected(false);
         
     }//GEN-LAST:event_jbNuevaMateriaActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
