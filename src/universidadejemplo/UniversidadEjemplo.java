@@ -11,15 +11,13 @@ public class universidadejemplo {
 
     public static void main(String[] args) {
         
-        InscripcionData id = new InscripcionData();
+//        InscripcionData id = new InscripcionData();
 //        AlumnoData ad= new AlumnoData();
 //        MateriaData md = new MateriaData();
-        List<Alumno> lista =id.obtenerAlumnosXMateria(2);
-        for(Alumno alu:lista){
-        
-            System.out.println(alu.toString());
-            
-        }
+//        List<Alumno> lista =id.obtenerAlumnosXMateria(2);
+//        for(Alumno alu:lista){
+//            System.out.println(alu.toString());
+//        }
 //        InscripcionData ins = new InscripcionData();
 //        ins.ObtenerMateriasNOCursadas(2);
 //        Alumno aID = ad.buscarAlumno(4);
