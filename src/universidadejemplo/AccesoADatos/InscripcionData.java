@@ -252,7 +252,7 @@ public class InscripcionData {
             ps.setInt(2, idAlumno);
             ps.setInt(3, idMateria);
             
-            int filas=ps.executeUpdate();
+            int filas = ps.executeUpdate();
             
             if (filas>0) {
                 

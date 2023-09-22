@@ -51,7 +51,6 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jtAlumnoNota.setCellSelectionEnabled(true);
         jScrollPane1.setViewportView(jtAlumnoNota);
         if (jtAlumnoNota.getColumnModel().getColumnCount() > 0) {
             jtAlumnoNota.getColumnModel().getColumn(3).setResizable(false);
@@ -152,9 +151,8 @@ public class CargarNotas extends javax.swing.JInternalFrame {
             Materia mat = (Materia) jtAlumnoNota.getValueAt(selec, 1);
             int idA = (Integer) jtAlumnoNota.getValueAt(selec, 0);
             int idM = mat.getIdMateria();
-            double nota = (Double) jtAlumnoNota.getValueAt(selec, 2);
-
-            id.actualizarNota(idA, idM, nota);
+            String nota = (String) jtAlumnoNota.getValueAt(selec, 2).toString();
+            id.actualizarNota(idA, idM, Double.parseDouble(nota));
             
         }
     }//GEN-LAST:event_jbGuardarActionPerformed
