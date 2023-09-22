@@ -9,7 +9,17 @@ import universidadejemplo.Entidades.*;
 
 public class CargarNotas extends javax.swing.JInternalFrame {
 
-    private DefaultTableModel modelo = new DefaultTableModel();
+    private DefaultTableModel modelo = new DefaultTableModel(){
+        
+        boolean[] canEdit = new boolean[]{
+                    false, false, true
+            };
+
+        @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+    };
 
     public CargarNotas() {
 
@@ -151,8 +161,8 @@ public class CargarNotas extends javax.swing.JInternalFrame {
             Materia mat = (Materia) jtAlumnoNota.getValueAt(selec, 1);
             int idA = (Integer) jtAlumnoNota.getValueAt(selec, 0);
             int idM = mat.getIdMateria();
-            String nota = (String) jtAlumnoNota.getValueAt(selec, 2).toString();
-            id.actualizarNota(idA, idM, Double.parseDouble(nota));
+            double nota=Double.parseDouble(jtAlumnoNota.getValueAt(selec, 2).toString());
+            id.actualizarNota(idA, idM, nota);
             
         }
     }//GEN-LAST:event_jbGuardarActionPerformed
