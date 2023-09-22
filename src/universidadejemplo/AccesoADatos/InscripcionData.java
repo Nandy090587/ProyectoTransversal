@@ -97,7 +97,7 @@ public class InscripcionData {
 
         ArrayList<Inscripcion> inscripcionListAlu = new ArrayList<>();
 
-        String sql = "SELECT * FROM inscripcion WHERE idAmlumno = ?";
+        String sql = "SELECT * FROM inscripcion WHERE idAlumno = ?";
         
         try {	
            

@@ -13,7 +13,8 @@ public class universidadejemplo {
         
 //        InscripcionData id = new InscripcionData();
 //        AlumnoData ad= new AlumnoData();
-//        MateriaData md = new MateriaData();
+        MateriaData md = new MateriaData();
+        System.out.println(md.buscarMateria(1));
 //        List<Alumno> lista =id.obtenerAlumnosXMateria(2);
 //        for(Alumno alu:lista){
 //            System.out.println(alu.toString());

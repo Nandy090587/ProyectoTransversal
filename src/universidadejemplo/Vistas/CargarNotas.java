@@ -1,6 +1,8 @@
 package universidadejemplo.Vistas;
 
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.*;
@@ -15,6 +17,10 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         armarCabecera();
         cargarCombo();
     }
+    
+    InscripcionData id = new InscripcionData();
+    AlumnoData ad = new AlumnoData();
+    MateriaData md = new MateriaData();
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -30,7 +36,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cargar de Notas");
+        jLabel1.setText("Carga de Notas");
 
         jLabel2.setText("Seleccione un Alumno: ");
 
@@ -60,6 +66,11 @@ public class CargarNotas extends javax.swing.JInternalFrame {
             }
         });
 
+        jcbListaAlumnos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcbListaAlumnosItemStateChanged(evt);
+            }
+        });
         jcbListaAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbListaAlumnosActionPerformed(evt);
@@ -85,18 +96,19 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jcbListaAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jLabel1)))
+                        .addComponent(jcbListaAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jcbListaAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -121,6 +133,11 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jcbListaAlumnosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbListaAlumnosItemStateChanged
+        
+        cargarLista();
+    }//GEN-LAST:event_jcbListaAlumnosItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -155,21 +172,18 @@ public class CargarNotas extends javax.swing.JInternalFrame {
 
         }
     }
-//        private void cargarLista(){
-//
-//            AlumnoData ad = new AlumnoData();
-//            Alumno itemSelec = (Alumno) jcbListaAlumnos.getSelectedItem();
-//            int selectID = itemSelec.getIdAlumno();
-//            
-//            MateriaData md = new MateriaData();
-//            List<Materia> inscod = md.buscarMateria((int)jcbListaMateria.getSelectedItem());
-//            InscripcionData id = new InscripcionData();
-//            List<Inscripcion> insNotas = id.ObternerInscripcionesPorAlumno((int) jcbListaAlumnos.getSelectedItem());
-//            modelo.setRowCount(0);
-//
-//            for (Inscripcion ins : insNotas){
-//
-//                modelo.addRow(new Object[]{ins.g(),
-//                    mat.getNombre(), mat.getAnio()}); 
-//        }
+        public void cargarLista(){
+            
+            Alumno itemSelec = (Alumno) jcbListaAlumnos.getSelectedItem();
+            int selectID = itemSelec.getIdAlumno();
+            Materia inscod = md.buscarMateria(selectID);
+            List<Inscripcion> inscri = id.ObternerInscripcionesPorAlumno(selectID);
+            modelo.setRowCount(0);
+
+            for (Inscripcion ins: inscri){
+
+                modelo.addRow(new Object[]{ ins.getIdInscripcion(), ins.getMateria(),ins.getNota()});
+              
+        }
+    }
 }

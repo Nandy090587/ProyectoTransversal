@@ -76,7 +76,7 @@ public class MateriaData {
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("año"));
                 materia.setEstado(true);
-                JOptionPane.showMessageDialog(null," Materia encontrada");
+//                JOptionPane.showMessageDialog(null," Materia encontrada");
                 
             }else{
                 
