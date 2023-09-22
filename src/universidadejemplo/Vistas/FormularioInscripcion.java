@@ -11,7 +11,14 @@ import universidadejemplo.Entidades.*;
 
 public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
-    private DefaultTableModel modelo = new DefaultTableModel();
+    private DefaultTableModel modelo = new DefaultTableModel(){
+        
+         @Override
+         public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return false;
+            }
+    
+    };
     
     public FormularioInscripcion() {
         
