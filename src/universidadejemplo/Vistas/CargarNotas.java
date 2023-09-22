@@ -30,7 +30,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtAlumnoNota = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jbGuardar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jcbListaAlumnos = new javax.swing.JComboBox<>();
 
@@ -57,7 +57,12 @@ public class CargarNotas extends javax.swing.JInternalFrame {
             jtAlumnoNota.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jButton1.setText("Guardar");
+        jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Salir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -83,17 +88,15 @@ public class CargarNotas extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(107, 107, 107)
-                .addComponent(jButton1)
+                .addComponent(jbGuardar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(46, 46, 46))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(jcbListaAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -116,7 +119,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jbGuardar)
                     .addComponent(jButton2))
                 .addGap(0, 14, Short.MAX_VALUE))
         );
@@ -139,13 +142,27 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         cargarLista();
     }//GEN-LAST:event_jcbListaAlumnosItemStateChanged
 
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+       
+        int selec = jtAlumnoNota.getSelectedRow();
+        if (selec >= 0) {
+            
+            Materia mat = (Materia) jtAlumnoNota.getValueAt(selec, 1);
+            int idA = (Integer) jtAlumnoNota.getValueAt(selec, 0);
+            int idM = mat.getIdMateria();
+            double nota = (Double) jtAlumnoNota.getValueAt(selec, 2);
+
+            id.actualizarNota(idA, idM, nota);
+        }
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbGuardar;
     private javax.swing.JComboBox<Alumno> jcbListaAlumnos;
     private javax.swing.JTable jtAlumnoNota;
     // End of variables declaration//GEN-END:variables
@@ -181,7 +198,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
 
             for (Inscripcion ins: inscri){
 
-                modelo.addRow(new Object[]{ ins.getIdInscripcion(), ins.getMateria(),ins.getNota()});
+                modelo.addRow(new Object[]{ ins.getAlumno().getIdAlumno(), ins.getMateria(),ins.getNota()});
               
         }
     }
