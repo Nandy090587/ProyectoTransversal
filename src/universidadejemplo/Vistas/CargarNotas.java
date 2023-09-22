@@ -1,8 +1,6 @@
 package universidadejemplo.Vistas;
 
-import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.*;
@@ -26,6 +24,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarCombo();
+        jbGuardar.setEnabled(false);
     }
     
     InscripcionData id = new InscripcionData();
@@ -61,6 +60,11 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtAlumnoNota.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtAlumnoNotaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtAlumnoNota);
         if (jtAlumnoNota.getColumnModel().getColumnCount() > 0) {
             jtAlumnoNota.getColumnModel().getColumn(3).setResizable(false);
@@ -155,9 +159,9 @@ public class CargarNotas extends javax.swing.JInternalFrame {
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
        
         int selec = jtAlumnoNota.getSelectedRow();
-       
+        
         if (selec >= 0) {
-            
+             
             Materia mat = (Materia) jtAlumnoNota.getValueAt(selec, 1);
             int idA = (Integer) jtAlumnoNota.getValueAt(selec, 0);
             int idM = mat.getIdMateria();
@@ -166,6 +170,12 @@ public class CargarNotas extends javax.swing.JInternalFrame {
             
         }
     }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jtAlumnoNotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtAlumnoNotaMouseClicked
+        
+        jbGuardar.setEnabled(true);
+        
+    }//GEN-LAST:event_jtAlumnoNotaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
