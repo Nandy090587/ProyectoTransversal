@@ -176,7 +176,6 @@ public class CargarNotas extends javax.swing.JInternalFrame {
             
             Alumno itemSelec = (Alumno) jcbListaAlumnos.getSelectedItem();
             int selectID = itemSelec.getIdAlumno();
-//            Materia inscod = md.buscarMateria(selectID);
             List<Inscripcion> inscri = id.ObternerInscripcionesPorAlumno(selectID);
             modelo.setRowCount(0);
 
