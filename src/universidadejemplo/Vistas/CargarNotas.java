@@ -155,6 +155,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         if (selec >= 0) {
             
             try {
+                
                 Materia mat = (Materia) jtAlumnoNota.getValueAt(selec, 1);
                 int idA = (Integer) jtAlumnoNota.getValueAt(selec, 0);
                 int idM = mat.getIdMateria();
@@ -163,6 +164,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                 if (nota >= 0 && nota <= 10) {
 
                     id.actualizarNota(idA, idM, nota);
+                    
                 } else {
 
                     JOptionPane.showMessageDialog(null, "Ingrese un valor entre 0 y 10 ");
