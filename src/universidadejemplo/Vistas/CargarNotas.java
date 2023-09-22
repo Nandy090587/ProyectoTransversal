@@ -143,38 +143,35 @@ public class CargarNotas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jcbListaAlumnosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbListaAlumnosItemStateChanged
-        
+
         cargarLista();
-        
+
     }//GEN-LAST:event_jcbListaAlumnosItemStateChanged
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-       
+
         int selec = jtAlumnoNota.getSelectedRow();
 
-        if (selec >= 0) {
-            
-            try {
-                
-                Materia mat = (Materia) jtAlumnoNota.getValueAt(selec, 1);
-                int idA = (Integer) jtAlumnoNota.getValueAt(selec, 0);
-                int idM = mat.getIdMateria();
-                double nota = Double.parseDouble(jtAlumnoNota.getValueAt(selec, 2).toString());
+        try {
 
-                if (nota >= 0 && nota <= 10) {
+            Materia mat = (Materia) jtAlumnoNota.getValueAt(selec, 1);
+            int idA = (Integer) jtAlumnoNota.getValueAt(selec, 0);
+            int idM = mat.getIdMateria();
+            double nota = Double.parseDouble(jtAlumnoNota.getValueAt(selec, 2).toString());
 
-                    id.actualizarNota(idA, idM, nota);
-                    
-                } else {
+            if (nota >= 0 && nota <= 10) {
 
-                    JOptionPane.showMessageDialog(null, "Ingrese un valor entre 0 y 10 ");
+                id.actualizarNota(idA, idM, nota);
 
-                }
-            } catch (NumberFormatException ex) {
+            } else {
 
-                JOptionPane.showMessageDialog(null, "Solo debe ingresar numeros entre 0 y 10");
+                JOptionPane.showMessageDialog(null, "Ingrese un valor entre 0 y 10 ");
 
             }
+        } catch (NumberFormatException ex) {
+
+            JOptionPane.showMessageDialog(null, "Solo debe ingresar numeros entre 0 y 10");
+
         }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
