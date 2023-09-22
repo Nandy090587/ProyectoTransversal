@@ -140,11 +140,13 @@ public class CargarNotas extends javax.swing.JInternalFrame {
     private void jcbListaAlumnosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbListaAlumnosItemStateChanged
         
         cargarLista();
+        
     }//GEN-LAST:event_jcbListaAlumnosItemStateChanged
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
        
         int selec = jtAlumnoNota.getSelectedRow();
+       
         if (selec >= 0) {
             
             Materia mat = (Materia) jtAlumnoNota.getValueAt(selec, 1);
@@ -153,6 +155,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
             double nota = (Double) jtAlumnoNota.getValueAt(selec, 2);
 
             id.actualizarNota(idA, idM, nota);
+            
         }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
@@ -178,7 +181,6 @@ public class CargarNotas extends javax.swing.JInternalFrame {
 
     private void cargarCombo() {
 
-        AlumnoData ad = new AlumnoData();
         List<Alumno> cblistaAlu = ad.listarAlumnos();
 
         for (int i = 0; i < cblistaAlu.size(); i++) {
