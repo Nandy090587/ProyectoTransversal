@@ -1,6 +1,7 @@
 package universidadejemplo.Vistas;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.*;
@@ -150,15 +151,28 @@ public class CargarNotas extends javax.swing.JInternalFrame {
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
        
         int selec = jtAlumnoNota.getSelectedRow();
-        
+
         if (selec >= 0) {
-             
-            Materia mat = (Materia) jtAlumnoNota.getValueAt(selec, 1);
-            int idA = (Integer) jtAlumnoNota.getValueAt(selec, 0);
-            int idM = mat.getIdMateria();
-            double nota=Double.parseDouble(jtAlumnoNota.getValueAt(selec, 2).toString());
-            id.actualizarNota(idA, idM, nota);
             
+            try {
+                Materia mat = (Materia) jtAlumnoNota.getValueAt(selec, 1);
+                int idA = (Integer) jtAlumnoNota.getValueAt(selec, 0);
+                int idM = mat.getIdMateria();
+                double nota = Double.parseDouble(jtAlumnoNota.getValueAt(selec, 2).toString());
+
+                if (nota >= 0 && nota <= 10) {
+
+                    id.actualizarNota(idA, idM, nota);
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Ingrese un valor entre 0 y 10 ");
+
+                }
+            } catch (NumberFormatException ex) {
+
+                JOptionPane.showMessageDialog(null, "Solo debe ingresar numeros entre 0 y 10");
+
+            }
         }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
