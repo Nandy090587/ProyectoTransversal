@@ -15,6 +15,7 @@ public class Vista extends javax.swing.JFrame {
         
         initComponents();
         this.setLocationRelativeTo(null);
+//        this.setSize(500, 600);
         setIconImage(new ImageIcon(getClass().getResource("libro.png")).getImage());            
         con = Conexion.getConexion();             
     }

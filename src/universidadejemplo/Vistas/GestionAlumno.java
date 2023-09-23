@@ -13,8 +13,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
     
     public GestionAlumno() {
         
-        initComponents();
-        
+        initComponents();  
          
     }
     
@@ -225,6 +224,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
                 jdFecha.setDate(Date.valueOf(buscarAlumnoDni.getFechaNacimiento()));
 
             }
+            
         } catch (NumberFormatException ex) {
 
             JOptionPane.showMessageDialog(this, "Ingrese un numero de dni valido");
@@ -282,10 +282,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
             
             JOptionPane.showMessageDialog(this, "No se ingresaron correctamente los datos");
             
-        }
-   
-        
-        
+        } 
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
