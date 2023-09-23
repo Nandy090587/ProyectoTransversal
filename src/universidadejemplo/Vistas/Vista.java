@@ -92,7 +92,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jmMateria);
 
-        jmAdminitracion.setText("Administracion");
+        jmAdminitracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Administracion.png"))); // NOI18N
 
         jmManeIncripcion.setText("Manejo de Inscripciones");
         jmManeIncripcion.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +112,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jmAdminitracion);
 
-        jMenu4.setText("Consultas");
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Consultas.png"))); // NOI18N
 
         jmCAMateria.setText("Alumnos por Materia");
         jmCAMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +124,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jmSalir.setText("Salir");
+        jmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/salir.png"))); // NOI18N
         jmSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jmSalirMouseClicked(evt);

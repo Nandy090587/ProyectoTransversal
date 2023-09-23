@@ -45,7 +45,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmAdminitracion">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Administracion"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/universidadejemplo/Vistas/Administracion.png"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmManeIncripcion">
@@ -68,7 +70,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Consultas"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/universidadejemplo/Vistas/Consultas.png"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmCAMateria">
@@ -83,7 +87,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmSalir">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Salir"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/universidadejemplo/Vistas/salir.png"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jmSalirMouseClicked"/>
