@@ -68,6 +68,8 @@ public class Vista extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(385, 50));
+
         jmAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/alumnos.png"))); // NOI18N
 
         jmForAlumno.setText("Formulario de Alumno");
