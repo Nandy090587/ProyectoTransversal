@@ -68,7 +68,7 @@ public class Vista extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jmAlumno.setText("Alumno");
+        jmAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/alumnos.png"))); // NOI18N
 
         jmForAlumno.setText("Formulario de Alumno");
         jmForAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +80,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jmAlumno);
 
-        jmMateria.setText("Materia");
+        jmMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Materias.png"))); // NOI18N
 
         jmForMateria.setText("Formulario de Materia");
         jmForMateria.addActionListener(new java.awt.event.ActionListener() {
