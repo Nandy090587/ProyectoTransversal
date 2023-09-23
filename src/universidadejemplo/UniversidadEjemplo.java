@@ -13,13 +13,12 @@ public class universidadejemplo {
         
 //        InscripcionData id = new InscripcionData();
 //        AlumnoData ad= new AlumnoData();
-        MateriaData md = new MateriaData();
-        System.out.println(md.buscarMateria(1));
+//        MateriaData md = new MateriaData();
+//        System.out.println(md.buscarMateria(1));
 //        List<Alumno> lista =id.obtenerAlumnosXMateria(2);
 //        for(Alumno alu:lista){
 //            System.out.println(alu.toString());
 //        }
-//        InscripcionData ins = new InscripcionData();
 //        ins.ObtenerMateriasNOCursadas(2);
 //        Alumno aID = ad.buscarAlumno(4);
 //        Materia mID = md.buscarMateria(2);
@@ -38,8 +37,6 @@ public class universidadejemplo {
 //        alum.eliminarAlumnoDni(49310852);
 //        Alumno alumnoEncontrado = alum.buscarAlumnoDni(34589602);
 //        System.out.println(alumnoEncontrado.toString());
-//        MateriaData md = new MateriaData();
-//        InscripcionData id = new InscripcionData();
 //        Alumno Martin = alum.buscarAlumno(1);
 //        Materia mat = md.buscarMateria(4);
 //        Inscripcion insc = id.guardarInscripcion(Martin,mat,4);

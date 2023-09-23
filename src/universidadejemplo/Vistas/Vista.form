@@ -165,7 +165,7 @@
         <Container class="javax.swing.JDesktopPane" name="escritorio">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[500, 520]"/>
+              <Dimension value="[550, 520]"/>
             </Property>
           </Properties>
           <AuxValues>

@@ -55,7 +55,7 @@ public class Vista extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
-        escritorio.setPreferredSize(new java.awt.Dimension(500, 520));
+        escritorio.setPreferredSize(new java.awt.Dimension(550, 520));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);

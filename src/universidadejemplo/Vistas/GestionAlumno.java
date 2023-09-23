@@ -41,11 +41,12 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         jdFecha = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(102, 102, 102));
-        setClosable(true);
-        setResizable(true);
+        setBorder(null);
         setTitle("Gestor Alumno");
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setAutoscrolls(true);
+        jPanel1.setEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
