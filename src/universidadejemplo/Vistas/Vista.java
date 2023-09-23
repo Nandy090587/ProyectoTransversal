@@ -1,6 +1,8 @@
 
 package universidadejemplo.Vistas;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.sql.Connection;
 import javax.swing.ImageIcon;
 import universidadejemplo.AccesoADatos.Conexion;
@@ -23,7 +25,17 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        escritorio = new javax.swing.JDesktopPane();
+        ImageIcon icono = new ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Universidad.jpg"));
+        Image imagen = icono.getImage();
+        escritorio = new javax.swing.JDesktopPane(){
+
+            public void paintComponent(Graphics g){
+
+                g.drawImage(imagen,0,0,getWidth(),getHeight(),this);
+
+            }
+
+        };
         jMenuBar1 = new javax.swing.JMenuBar();
         jmAlumno = new javax.swing.JMenu();
         jmForAlumno = new javax.swing.JMenuItem();
@@ -41,6 +53,8 @@ public class Vista extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+
+        escritorio.setPreferredSize(new java.awt.Dimension(500, 520));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
