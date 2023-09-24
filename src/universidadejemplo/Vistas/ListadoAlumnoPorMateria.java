@@ -11,7 +11,6 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo=new DefaultTableModel(){
         
         @Override
-        
         public boolean isCellEditable(int rowIndex, int columnIndex) {
         return false;
         
