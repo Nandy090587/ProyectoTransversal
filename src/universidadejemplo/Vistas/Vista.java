@@ -14,9 +14,9 @@ public class Vista extends javax.swing.JFrame {
     public Vista() {
         
         initComponents();
+
         this.setLocationRelativeTo(null);
-//        this.setSize(500, 600);
-        setIconImage(new ImageIcon(getClass().getResource("libro.png")).getImage());            
+        setIconImage(new ImageIcon(getClass().getResource("colegio.png")).getImage());            
         con = Conexion.getConexion();             
     }
 
@@ -26,7 +26,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        ImageIcon icono = new ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Universidad.jpg"));
+        ImageIcon icono = new ImageIcon(getClass().getResource("/universidadejemplo/Recursos/Universidad.jpg"));
         Image imagen = icono.getImage();
         escritorio = new javax.swing.JDesktopPane(){
 
@@ -61,11 +61,11 @@ public class Vista extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -85,7 +85,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(385, 50));
 
-        jmAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/alumnos.png"))); // NOI18N
+        jmAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Recursos/alumno1.png"))); // NOI18N
 
         jmForAlumno.setText("Formulario de Alumno");
         jmForAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +97,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jmAlumno);
 
-        jmMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Materias.png"))); // NOI18N
+        jmMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Recursos/Materias1.png"))); // NOI18N
 
         jmForMateria.setText("Formulario de Materia");
         jmForMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +109,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jmMateria);
 
-        jmAdminitracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Administracion.png"))); // NOI18N
+        jmAdminitracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Recursos/Administracion1.png"))); // NOI18N
 
         jmManeIncripcion.setText("Manejo de Inscripciones");
         jmManeIncripcion.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +129,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jmAdminitracion);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Consultas.png"))); // NOI18N
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Recursos/Consultas1.png"))); // NOI18N
 
         jmCAMateria.setText("Alumnos por Materia");
         jmCAMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +141,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/salir.png"))); // NOI18N
+        jmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Recursos/Salir1.png"))); // NOI18N
         jmSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jmSalirMouseClicked(evt);
