@@ -44,6 +44,8 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jcbListaAlumnos = new javax.swing.JComboBox<>();
 
+        setBorder(null);
+
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Carga de Notas");
@@ -130,7 +132,7 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
                     .addComponent(jButton2))
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addGap(0, 16, Short.MAX_VALUE))
         );
 
         pack();

@@ -1,6 +1,8 @@
 
 package universidadejemplo.Vistas;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.sql.Connection;
 import javax.swing.ImageIcon;
 import universidadejemplo.AccesoADatos.Conexion;
@@ -13,6 +15,7 @@ public class Vista extends javax.swing.JFrame {
         
         initComponents();
         this.setLocationRelativeTo(null);
+//        this.setSize(500, 600);
         setIconImage(new ImageIcon(getClass().getResource("libro.png")).getImage());            
         con = Conexion.getConexion();             
     }
@@ -23,7 +26,17 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        escritorio = new javax.swing.JDesktopPane();
+        ImageIcon icono = new ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Universidad.jpg"));
+        Image imagen = icono.getImage();
+        escritorio = new javax.swing.JDesktopPane(){
+
+            public void paintComponent(Graphics g){
+
+                g.drawImage(imagen,0,0,getWidth(),getHeight(),this);
+
+            }
+
+        };
         jMenuBar1 = new javax.swing.JMenuBar();
         jmAlumno = new javax.swing.JMenu();
         jmForAlumno = new javax.swing.JMenuItem();
@@ -41,6 +54,8 @@ public class Vista extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+
+        escritorio.setPreferredSize(new java.awt.Dimension(550, 520));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
@@ -68,7 +83,9 @@ public class Vista extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jmAlumno.setText("Alumno");
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(385, 50));
+
+        jmAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/alumnos.png"))); // NOI18N
 
         jmForAlumno.setText("Formulario de Alumno");
         jmForAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +97,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jmAlumno);
 
-        jmMateria.setText("Materia");
+        jmMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Materias.png"))); // NOI18N
 
         jmForMateria.setText("Formulario de Materia");
         jmForMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +109,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jmMateria);
 
-        jmAdminitracion.setText("Administracion");
+        jmAdminitracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Administracion.png"))); // NOI18N
 
         jmManeIncripcion.setText("Manejo de Inscripciones");
         jmManeIncripcion.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +129,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jmAdminitracion);
 
-        jMenu4.setText("Consultas");
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/Consultas.png"))); // NOI18N
 
         jmCAMateria.setText("Alumnos por Materia");
         jmCAMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +141,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jmSalir.setText("Salir");
+        jmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadejemplo/Vistas/salir.png"))); // NOI18N
         jmSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jmSalirMouseClicked(evt);

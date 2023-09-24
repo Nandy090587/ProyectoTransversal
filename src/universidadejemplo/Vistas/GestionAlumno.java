@@ -8,14 +8,14 @@ import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.*;
 
 public class GestionAlumno extends javax.swing.JInternalFrame {
-
-    public GestionAlumno() {
-        
-        initComponents();
-         
-    }
     
     AlumnoData ad = new AlumnoData();
+    
+    public GestionAlumno() {
+        
+        initComponents();  
+         
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -41,11 +41,12 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         jdFecha = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(102, 102, 102));
-        setClosable(true);
-        setResizable(true);
+        setBorder(null);
         setTitle("Gestor Alumno");
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setAutoscrolls(true);
+        jPanel1.setEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -201,9 +202,9 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
         
-        jtDni.setText("");
-        jtNombre.setText("");
-        jtApellido.setText("");
+        jtDni.setText(null);
+        jtNombre.setText(null);
+        jtApellido.setText(null);
         jrEstado.setSelected(false);
         jdFecha.setDate(null);
         
@@ -224,9 +225,10 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
                 jdFecha.setDate(Date.valueOf(buscarAlumnoDni.getFechaNacimiento()));
 
             }
+            
         } catch (NumberFormatException ex) {
 
-            JOptionPane.showMessageDialog(null, "Ingrese un numero de Dni valido");
+            JOptionPane.showMessageDialog(this, "Ingrese un numero de dni valido");
 
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
@@ -240,15 +242,48 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         
         Alumno guardarAlum = new Alumno();
+        try{
+            
+            guardarAlum.setDni( Integer.parseInt(jtDni.getText()));
+            
+        }catch(NumberFormatException ex){
         
-        guardarAlum.setDni( Integer.parseInt(jtDni.getText()));
-        guardarAlum.setApellido(jtApellido.getText());
+            JOptionPane.showMessageDialog(this, "Ingrese un numero de dni");
+        
+        }
+        try{
+            
+            guardarAlum.setApellido(jtApellido.getText());
+            
+        }catch(Exception e1){
+            
+            JOptionPane.showMessageDialog(this, "Ingrese el apellido");
+            
+        }
+        
         guardarAlum.setNombre(jtNombre.getText());
-        guardarAlum.setFechaNacimiento(jdFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        
+        try{
+            
+            guardarAlum.setFechaNacimiento(jdFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            
+        }catch(NullPointerException e2){
+            
+            JOptionPane.showMessageDialog(this, "Ingrese la fecha de nacimiento");
+            
+        }
+        
         guardarAlum.setActivo(jrEstado.isSelected());
         
-        ad.guardarAlumno(guardarAlum);
-        
+        try{
+            
+            ad.guardarAlumno(guardarAlum);
+            
+        }catch(Exception e4){
+            
+            JOptionPane.showMessageDialog(this, "No se ingresaron correctamente los datos");
+            
+        } 
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed

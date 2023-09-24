@@ -36,6 +36,8 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jbSalir = new javax.swing.JButton();
         jtAnio = new javax.swing.JTextField();
 
+        setBorder(null);
+
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("Materia");
 

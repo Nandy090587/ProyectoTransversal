@@ -49,6 +49,8 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jbNoInscribir = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
 
+        setBorder(null);
+
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("Formulario de Inscripcion");
 
@@ -164,7 +166,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(152, 152, 152)
                         .addComponent(jLabel3)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
