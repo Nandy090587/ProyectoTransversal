@@ -17,7 +17,8 @@ public class Vista extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/universidadejemplo/Recursos/colegio.png")).getImage());            
-        con = Conexion.getConexion();             
+        con = Conexion.getConexion();     
+        
     }
 
     @SuppressWarnings("unchecked")
