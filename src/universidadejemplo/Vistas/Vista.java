@@ -36,7 +36,6 @@ public class Vista extends javax.swing.JFrame {
                 g.drawImage(imagen,0,0,getWidth(),getHeight(),this);
 
             }
-
         };
         jMenuBar1 = new javax.swing.JMenuBar();
         jmAlumno = new javax.swing.JMenu();

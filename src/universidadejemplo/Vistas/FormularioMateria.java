@@ -14,7 +14,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     public FormularioMateria() {
         
         initComponents();
-        BackgroundDesktopPane desktopPane = new BackgroundDesktopPane("");
+       
     }
     
     MateriaData md = new MateriaData();
