@@ -3,31 +3,36 @@ package universidadejemplo.Vistas;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.io.IOException;
 import java.sql.Date;
 import java.time.ZoneId;
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import universidadejemplo.AccesoADatos.*;
 import universidadejemplo.Entidades.*;
 
 public class GestionAlumno extends javax.swing.JInternalFrame {
-    
-    private Image imagen;
+   
     AlumnoData ad = new AlumnoData();
     
     public GestionAlumno() {
 
         initComponents();  
-
+       
     }
     
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/universidadejemplo/Recursos/alumnoB.png"));
+        Image image = icon.getImage();
+        jDesktopPane1 = new javax.swing.JDesktopPane(){
+
+            public void paintComponent(Graphics g){
+                g.drawImage(image,0,0,getWidth(),getHeight(),this);
+            }
+
+        };
         jrEstado = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jdFecha = new com.toedter.calendar.JDateChooser();
@@ -138,7 +143,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,8 +162,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
                                     .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jbBuscar))
-                            .addComponent(jrEstado))
-                        .addGap(10, 10, 10))
+                            .addComponent(jrEstado)))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(jLabel4)
@@ -173,7 +177,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
                         .addComponent(jbGuardar)
                         .addGap(18, 18, 18)
                         .addComponent(jbSalir)))
-                .addContainerGap())
+                .addGap(10, 10, 10))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(164, 164, 164)
                 .addComponent(jLabel1)
@@ -182,7 +186,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -348,5 +352,5 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtDni;
     private javax.swing.JTextField jtNombre;
     // End of variables declaration//GEN-END:variables
-
+    
 }
