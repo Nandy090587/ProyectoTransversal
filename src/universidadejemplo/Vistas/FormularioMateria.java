@@ -235,20 +235,29 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             
         
         Materia guardarMat = new Materia();
+
         try {
-        guardarMat.setIdMateria(Integer.parseInt(jtCodigo.getText()));
-        guardarMat.setNombre(jtNombre.getText());
-        
-            if (guardarMat.getAnio()>=1 && guardarMat.getAnio()<=6) {
-            guardarMat.setAnio(Integer.parseInt(jtAnio.getText()));    
+            guardarMat.setIdMateria(Integer.parseInt(jtCodigo.getText()));
+            guardarMat.setNombre(jtNombre.getText());
+
+            
+            int anioIn= Integer.parseInt(jtAnio.getText());
+            if( anioIn>=1 && anioIn<=6) {
+                  
+            guardarMat.setAnio(anioIn);    
             }else{
-                JOptionPane.showMessageDialog(null, "Ingrese Años Materias 1 a 6 ");
+      
+                JOptionPane.showMessageDialog(null, "Ingrese Años de Materias entre: 1 y 6 ");
             }
+           
         guardarMat.setEstado(jrEstado.isSelected());
         
         md.guardarMateria(guardarMat);
-        }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Ingrese En las Casillas los Datos Correspondientes:"+"\n"+" Codigo, Año Numero Enteros "+"\n"+"nombre: Ingrese nombres que contengan letras validos ");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingrese En las Casillas los Datos Correspondientes: \n"
+                    + " Codigo, Año Numero Enteros \n"
+                    + " Nombre: Ingrese nombres que contengan letras validos ");
+       
        // }catch(){
             
         }
