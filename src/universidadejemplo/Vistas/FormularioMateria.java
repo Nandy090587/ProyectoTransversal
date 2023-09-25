@@ -136,9 +136,8 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jtAnio, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jrEstado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jrEstado)
+                            .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jbBuscar)
@@ -156,8 +155,8 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jbGuardar)
                         .addGap(18, 18, 18)
-                        .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jbSalir)))
+                .addGap(0, 15, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,15 +231,30 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-       
-        Materia guardarMat = new Materia();
         
+            
+        
+        Materia guardarMat = new Materia();
+        try {
+        guardarMat.setIdMateria(Integer.parseInt(jtCodigo.getText()));
         guardarMat.setNombre(jtNombre.getText());
-        guardarMat.setAnio(Integer.parseInt(jtAnio.getText()));
+        
+            if (guardarMat.getAnio()>=1 && guardarMat.getAnio()<=6) {
+            guardarMat.setAnio(Integer.parseInt(jtAnio.getText()));    
+            }else{
+                JOptionPane.showMessageDialog(null, "Ingrese Años Materias 1 a 6 ");
+            }
         guardarMat.setEstado(jrEstado.isSelected());
         
         md.guardarMateria(guardarMat);
-              
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Ingrese En las Casillas los Datos Correspondientes:"+"\n"+" Codigo, Año Numero Enteros "+"\n"+"nombre: Ingrese nombres que contengan letras validos ");
+       // }catch(){
+            
+        }
+            
+        
+             
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
