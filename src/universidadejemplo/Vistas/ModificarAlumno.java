@@ -4,6 +4,7 @@ package universidadejemplo.Vistas;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.Date;
+import java.time.ZoneId;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import universidadejemplo.AccesoADatos.AlumnoData;
@@ -274,8 +275,12 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
         
-        
-        
+        Alumno ma = new Alumno();
+        ma.setDni(Integer.parseInt(jtDni.getText()));
+        ma.setApellido(jtApellido.getText());
+        ma.setNombre(jtNombre.getText());
+        ma.getFechaNacimiento(jdFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        ma.setActivo(jrEstado.isSelected());
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtIdAluKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdAluKeyTyped
