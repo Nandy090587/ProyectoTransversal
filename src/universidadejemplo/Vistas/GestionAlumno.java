@@ -59,12 +59,6 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(400, 400));
 
-        jrEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrEstadoActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setText("Fecha de Nacimiento");
 
@@ -352,10 +346,6 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         jrEstado.setSelected(false);
         jdFecha.setDate(null);
     }//GEN-LAST:event_jbNuevoActionPerformed
-
-    private void jrEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jrEstadoActionPerformed
 
     private void jtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDniKeyTyped
         

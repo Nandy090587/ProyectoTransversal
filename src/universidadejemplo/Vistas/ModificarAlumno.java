@@ -83,11 +83,6 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Dni:");
 
-        jtDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtDniActionPerformed(evt);
-            }
-        });
         jtDni.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtDniKeyTyped(evt);
@@ -255,10 +250,6 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtDniActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         
