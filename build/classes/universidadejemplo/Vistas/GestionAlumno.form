@@ -108,12 +108,9 @@
                                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jrEstado" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jtNombre" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jtNombre" alignment="0" pref="202" max="32767" attributes="0"/>
                                       <Component id="jtApellido" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                                          <Component id="jtDni" min="-2" pref="103" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="jtDni" min="-2" pref="103" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -126,7 +123,7 @@
                   </Group>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="54" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="311" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               </Group>
