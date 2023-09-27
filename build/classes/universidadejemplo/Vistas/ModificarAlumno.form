@@ -79,7 +79,7 @@
                                           <Component id="jtDni" max="32767" attributes="0"/>
                                           <Component id="jtNombre" alignment="0" pref="129" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="jRadioButton1" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="jrEstado" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -141,7 +141,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace pref="10" max="32767" attributes="0"/>
-                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jrEstado" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -218,7 +218,7 @@
             <Property name="text" type="java.lang.String" value="Estado:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+        <Component class="javax.swing.JRadioButton" name="jrEstado">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>

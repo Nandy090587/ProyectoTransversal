@@ -3,8 +3,10 @@ package universidadejemplo.Vistas;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.sql.Date;
 import javax.swing.ImageIcon;
 import universidadejemplo.AccesoADatos.AlumnoData;
+import universidadejemplo.Entidades.Alumno;
 
 
 public class ModificarAlumno extends javax.swing.JInternalFrame {
@@ -41,7 +43,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jtNombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        jrEstado = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
         jdFecha = new com.toedter.calendar.JDateChooser();
         jbNuevo = new javax.swing.JButton();
@@ -102,7 +104,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
         jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jtNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jRadioButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jrEstado, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jdFecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbNuevo, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -141,7 +143,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
                                         .addComponent(jtApellido)
                                         .addComponent(jtDni)
                                         .addComponent(jtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
-                                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jrEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,7 +190,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel6))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                                .addComponent(jRadioButton1)))
+                                .addComponent(jrEstado)))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
@@ -231,7 +233,13 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         
         Integer id = Integer.valueOf(jtIdAlu.getText());
-        ad.eliminarAlumno(id);
+        Alumno ba = ad.buscarAlumno(id);
+        jtDni.setText(ba.getDni()+"");
+        jtApellido.setText(ba.getApellido());
+        jtNombre.setText(ba.getNombre());
+        jrEstado.setSelected(ba.isActivo());
+        jdFecha.setDate(Date.valueOf(ba.getFechaNacimiento()));
+        
     }//GEN-LAST:event_jbBuscarActionPerformed
 
 
@@ -244,12 +252,12 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbNuevo;
     private javax.swing.JButton jbSalir;
     private com.toedter.calendar.JDateChooser jdFecha;
+    private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtApellido;
     private javax.swing.JTextField jtDni;
     private javax.swing.JTextField jtIdAlu;
