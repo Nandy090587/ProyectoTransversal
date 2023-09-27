@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.Date;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import universidadejemplo.AccesoADatos.AlumnoData;
 import universidadejemplo.Entidades.Alumno;
 
@@ -58,6 +59,12 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Id Alumno:");
 
+        jtIdAlu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtIdAluKeyTyped(evt);
+            }
+        });
+
         jbBuscar.setText("Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +74,12 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Apellido:");
 
+        jtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtApellidoKeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Dni:");
 
         jtDni.addActionListener(new java.awt.event.ActionListener() {
@@ -74,8 +87,19 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
                 jtDniActionPerformed(evt);
             }
         });
+        jtDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtDniKeyTyped(evt);
+            }
+        });
 
         jLabel5.setText("Nombre:");
+
+        jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNombreKeyTyped(evt);
+            }
+        });
 
         jLabel6.setText("Estado:");
 
@@ -144,9 +168,11 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jtApellido)
+                                        .addComponent(jtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
                                         .addComponent(jtDni)
-                                        .addComponent(jtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+                                        .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jtNombre)))
                                     .addComponent(jrEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
@@ -198,7 +224,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jdFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(44, 44, 44)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -251,6 +277,62 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_jbModificarActionPerformed
+
+    private void jtIdAluKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdAluKeyTyped
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+            
+        }                             
+    }//GEN-LAST:event_jtIdAluKeyTyped
+
+    private void jtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDniKeyTyped
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+            
+        }         
+    }//GEN-LAST:event_jtDniKeyTyped
+
+    private void jtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtApellidoKeyTyped
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isDigit(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo letras");
+            
+        }
+    }//GEN-LAST:event_jtApellidoKeyTyped
+
+    private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isDigit(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo letras");
+            
+        }
+    }//GEN-LAST:event_jtNombreKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -75,9 +75,12 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jtApellido" max="32767" attributes="0"/>
+                                          <Component id="jtApellido" pref="129" max="32767" attributes="0"/>
                                           <Component id="jtDni" max="32767" attributes="0"/>
-                                          <Component id="jtNombre" alignment="0" pref="129" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                              <Component id="jtNombre" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <Component id="jrEstado" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
@@ -148,7 +151,7 @@
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="jdFecha" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -180,6 +183,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jtIdAlu">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtIdAluKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jbBuscar">
           <Properties>
@@ -195,6 +201,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jtApellido">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtApellidoKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -204,6 +213,7 @@
         <Component class="javax.swing.JTextField" name="jtDni">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtDniActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtDniKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -212,6 +222,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jtNombre">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtNombreKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
