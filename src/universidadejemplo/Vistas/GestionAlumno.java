@@ -99,7 +99,7 @@ public class GestionAlumno extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Guardar/Eliminar Alumno");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

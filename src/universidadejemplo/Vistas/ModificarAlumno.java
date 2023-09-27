@@ -8,7 +8,6 @@ import javax.swing.ImageIcon;
 import universidadejemplo.AccesoADatos.AlumnoData;
 import universidadejemplo.Entidades.Alumno;
 
-
 public class ModificarAlumno extends javax.swing.JInternalFrame {
 
    
@@ -85,6 +84,11 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
         jbNuevo.setText("Nuevo");
 
         jbModificar.setText("Modificar");
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -241,6 +245,12 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
         jdFecha.setDate(Date.valueOf(ba.getFechaNacimiento()));
         
     }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_jbModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
