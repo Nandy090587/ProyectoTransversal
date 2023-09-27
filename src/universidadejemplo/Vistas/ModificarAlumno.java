@@ -266,6 +266,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
         Integer id = Integer.valueOf(jtIdAlu.getText());
         Alumno ba = ad.buscarAlumno(id);
         jtDni.setText(ba.getDni()+"");
+        jtDni.setEditable(false);
         jtApellido.setText(ba.getApellido());
         jtNombre.setText(ba.getNombre());
         jrEstado.setSelected(ba.isActivo());
@@ -276,11 +277,14 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
         
         Alumno ma = new Alumno();
+        ma.setIdAlumno(Integer.parseInt(jtIdAlu.getText()));
         ma.setDni(Integer.parseInt(jtDni.getText()));
         ma.setApellido(jtApellido.getText());
         ma.setNombre(jtNombre.getText());
-        ma.getFechaNacimiento(jdFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        ma.setFechaNacimiento(jdFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         ma.setActivo(jrEstado.isSelected());
+        
+        ad.modificarAlumno(ma);
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtIdAluKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdAluKeyTyped
