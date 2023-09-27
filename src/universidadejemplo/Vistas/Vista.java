@@ -40,6 +40,7 @@ public class Vista extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jmAlumno = new javax.swing.JMenu();
         jmForAlumno = new javax.swing.JMenuItem();
+        jmModAlum = new javax.swing.JMenuItem();
         jmMateria = new javax.swing.JMenu();
         jmForMateria = new javax.swing.JMenuItem();
         jmAdminitracion = new javax.swing.JMenu();
@@ -55,7 +56,9 @@ public class Vista extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
+        escritorio.setToolTipText("");
         escritorio.setPreferredSize(new java.awt.Dimension(550, 520));
+        escritorio.setRequestFocusEnabled(false);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
@@ -72,13 +75,13 @@ public class Vista extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -94,6 +97,14 @@ public class Vista extends javax.swing.JFrame {
             }
         });
         jmAlumno.add(jmForAlumno);
+
+        jmModAlum.setText("Modificar Alumno");
+        jmModAlum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmModAlumActionPerformed(evt);
+            }
+        });
+        jmAlumno.add(jmModAlum);
 
         jMenuBar1.add(jmAlumno);
 
@@ -224,6 +235,16 @@ public class Vista extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jmSalirMouseClicked
 
+    private void jmModAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmModAlumActionPerformed
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+        ModificarAlumno ma = new ModificarAlumno();
+        ma.setVisible(true);
+        escritorio.add(ma);
+        escritorio.moveToFront(ma);
+    }//GEN-LAST:event_jmModAlumActionPerformed
+
     public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -247,6 +268,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmManeIncripcion;
     private javax.swing.JMenuItem jmManiNotas;
     private javax.swing.JMenu jmMateria;
+    private javax.swing.JMenuItem jmModAlum;
     private javax.swing.JMenu jmSalir;
     // End of variables declaration//GEN-END:variables
 }
