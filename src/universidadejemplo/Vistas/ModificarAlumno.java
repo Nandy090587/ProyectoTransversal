@@ -47,7 +47,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
         jrEstado = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
         jdFecha = new com.toedter.calendar.JDateChooser();
-        jbNuevo = new javax.swing.JButton();
+        jbLimpiar = new javax.swing.JButton();
         jbModificar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
 
@@ -106,7 +106,12 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Fecha de nacimiento:");
 
-        jbNuevo.setText("Nuevo");
+        jbLimpiar.setText("Limpiar");
+        jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimpiarActionPerformed(evt);
+            }
+        });
 
         jbModificar.setText("Modificar");
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +141,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
         jDesktopPane1.setLayer(jrEstado, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jdFecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jbNuevo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbLimpiar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbModificar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -183,7 +188,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
                         .addGap(28, 28, 28))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jbNuevo)
+                        .addComponent(jbLimpiar)
                         .addGap(18, 18, 18)
                         .addComponent(jbModificar)
                         .addGap(18, 18, 18)
@@ -229,7 +234,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
                         .addComponent(jdFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(44, 44, 44)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbNuevo)
+                    .addComponent(jbLimpiar)
                     .addComponent(jbModificar)
                     .addComponent(jbSalir))
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -343,6 +348,17 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jtNombreKeyTyped
 
+    private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
+        
+        jtIdAlu.setText(null);
+        jtDni.setText(null);
+        jtNombre.setText(null);
+        jtApellido.setText(null);
+        jrEstado.setSelected(false);
+        jdFecha.setDate(null);
+        
+    }//GEN-LAST:event_jbLimpiarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -354,8 +370,8 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JButton jbBuscar;
+    private javax.swing.JButton jbLimpiar;
     private javax.swing.JButton jbModificar;
-    private javax.swing.JButton jbNuevo;
     private javax.swing.JButton jbSalir;
     private com.toedter.calendar.JDateChooser jdFecha;
     private javax.swing.JRadioButton jrEstado;
