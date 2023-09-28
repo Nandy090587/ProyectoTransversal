@@ -260,7 +260,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
        
         
-        if(jtIdAlu.getText()==null){
+//        if(jtIdAlu.getText()==""){
             
             Integer id = Integer.valueOf(jtIdAlu.getText());
             Alumno ba = ad.buscarAlumno(id);
@@ -270,12 +270,12 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
             jtNombre.setText(ba.getNombre());
             jrEstado.setSelected(ba.isActivo());
             jdFecha.setDate(Date.valueOf(ba.getFechaNacimiento()));
-            
-        }else{
-        
-        JOptionPane.showMessageDialog(this, "Ingrese un numero de id del Alumno");
-        
-        }     
+//            
+//        }else{
+//        
+//        JOptionPane.showMessageDialog(this, "Ingrese un numero de id del Alumno");
+//        
+//        }     
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
