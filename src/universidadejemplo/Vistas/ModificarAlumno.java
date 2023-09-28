@@ -258,16 +258,23 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+       
         
-        Integer id = Integer.valueOf(jtIdAlu.getText());
-        Alumno ba = ad.buscarAlumno(id);
-        jtDni.setText(ba.getDni()+"");
-        jtDni.setEditable(false);
-        jtApellido.setText(ba.getApellido());
-        jtNombre.setText(ba.getNombre());
-        jrEstado.setSelected(ba.isActivo());
-        jdFecha.setDate(Date.valueOf(ba.getFechaNacimiento()));
+        if(jtIdAlu.getText()==null){
+            
+            Integer id = Integer.valueOf(jtIdAlu.getText());
+            Alumno ba = ad.buscarAlumno(id);
+            jtDni.setText(ba.getDni()+"");
+            jtDni.setEditable(false);
+            jtApellido.setText(ba.getApellido());
+            jtNombre.setText(ba.getNombre());
+            jrEstado.setSelected(ba.isActivo());
+            jdFecha.setDate(Date.valueOf(ba.getFechaNacimiento()));
+            
+        }else{
         
+        JOptionPane.showMessageDialog(this, "Ingrese un numero de id del Alumno");
+        }     
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
