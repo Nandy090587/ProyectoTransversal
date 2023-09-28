@@ -1,6 +1,7 @@
 package universidadejemplo.Vistas;
 
 import java.awt.Graphics;
+import java.awt.HeadlessException;
 import java.awt.Image;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -103,6 +104,11 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                 jtAlumnoNotaMouseClicked(evt);
             }
         });
+        jtAlumnoNota.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtAlumnoNotaKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtAlumnoNota);
         if (jtAlumnoNota.getColumnModel().getColumnCount() > 0) {
             jtAlumnoNota.getColumnModel().getColumn(3).setResizable(false);
@@ -128,13 +134,14 @@ public class CargarNotas extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jcbListaAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jcbListaAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(3, 3, 3))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(100, 100, 100))))
@@ -205,7 +212,8 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Ingrese un valor entre 0 y 10 ");
 
             }
-        } catch (NumberFormatException ex) {
+            
+        } catch (HeadlessException | NumberFormatException ex) {
 
             JOptionPane.showMessageDialog(null, "Solo debe ingresar numeros entre 0 y 10");
 
@@ -217,6 +225,10 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         jbGuardar.setEnabled(true);
         
     }//GEN-LAST:event_jtAlumnoNotaMouseClicked
+
+    private void jtAlumnoNotaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtAlumnoNotaKeyTyped
+        
+    }//GEN-LAST:event_jtAlumnoNotaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
