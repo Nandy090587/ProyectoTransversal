@@ -59,6 +59,12 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             }
         });
 
+        jtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtCodigoKeyTyped(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel2.setText("codigo");
 
@@ -71,9 +77,15 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel5.setText("Estado");
 
-        jtAnio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtAnioActionPerformed(evt);
+        jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNombreKeyTyped(evt);
+            }
+        });
+
+        jtAnio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtAnioKeyTyped(evt);
             }
         });
 
@@ -237,33 +249,31 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         Materia guardarMat = new Materia();
 
         try {
+            
             guardarMat.setIdMateria(Integer.parseInt(jtCodigo.getText()));
             guardarMat.setNombre(jtNombre.getText());
 
-            
             int anioIn= Integer.parseInt(jtAnio.getText());
+            
             if( anioIn>=1 && anioIn<=6) {
                   
-            guardarMat.setAnio(anioIn);    
+                guardarMat.setAnio(anioIn);  
+            
             }else{
       
                 JOptionPane.showMessageDialog(null, "Ingrese Años de Materias entre: 1 y 6 ");
             }
            
         guardarMat.setEstado(jrEstado.isSelected());
-        
         md.guardarMateria(guardarMat);
+        
         } catch (NumberFormatException e) {
+            
             JOptionPane.showMessageDialog(null, "Ingrese En las Casillas los Datos Correspondientes: \n"
                     + " Codigo, Año Numero Enteros \n"
                     + " Nombre: Ingrese nombres que contengan letras validos ");
-       
-       // }catch(){
             
-        }
-            
-        
-             
+        }        
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
@@ -281,9 +291,45 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jbNuevaMateriaActionPerformed
 
-    private void jtAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtAnioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtAnioActionPerformed
+    private void jtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCodigoKeyTyped
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+        }
+    }//GEN-LAST:event_jtCodigoKeyTyped
+
+    private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isDigit(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo letras");
+            
+        }
+    }//GEN-LAST:event_jtNombreKeyTyped
+
+    private void jtAnioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtAnioKeyTyped
+        
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+        }
+    }//GEN-LAST:event_jtAnioKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
