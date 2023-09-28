@@ -104,11 +104,6 @@ public class CargarNotas extends javax.swing.JInternalFrame {
                 jtAlumnoNotaMouseClicked(evt);
             }
         });
-        jtAlumnoNota.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtAlumnoNotaKeyTyped(evt);
-            }
-        });
         jScrollPane1.setViewportView(jtAlumnoNota);
         if (jtAlumnoNota.getColumnModel().getColumnCount() > 0) {
             jtAlumnoNota.getColumnModel().getColumn(3).setResizable(false);
@@ -225,10 +220,6 @@ public class CargarNotas extends javax.swing.JInternalFrame {
         jbGuardar.setEnabled(true);
         
     }//GEN-LAST:event_jtAlumnoNotaMouseClicked
-
-    private void jtAlumnoNotaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtAlumnoNotaKeyTyped
-        
-    }//GEN-LAST:event_jtAlumnoNotaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
