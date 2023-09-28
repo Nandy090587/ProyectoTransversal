@@ -274,6 +274,7 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
         }else{
         
         JOptionPane.showMessageDialog(this, "Ingrese un numero de id del Alumno");
+        
         }     
     }//GEN-LAST:event_jbBuscarActionPerformed
 
@@ -285,9 +286,10 @@ public class ModificarAlumno extends javax.swing.JInternalFrame {
         ma.setApellido(jtApellido.getText());
         ma.setNombre(jtNombre.getText());
         ma.setFechaNacimiento(jdFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        ma.setActivo(jrEstado.isSelected());
+        ma.setActivo(jrEstado.isSelected());  
         
         ad.modificarAlumno(ma);
+        
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtIdAluKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdAluKeyTyped
