@@ -239,6 +239,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         }catch(NumberFormatException ex) {
             
             JOptionPane.showMessageDialog(null, "Ingrese un numero entero");
+            
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
