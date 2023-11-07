@@ -192,17 +192,17 @@ public class ListadoAlumnoPorMateria extends javax.swing.JInternalFrame {
     }
     
     private void cargarLista() {
-          
+
         Materia itemSele = (Materia) jcbListaMaterias.getSelectedItem();
         int selectID = itemSele.getIdMateria();
         List<Alumno> Insc = id.obtenerAlumnosXMateria(selectID);
         modelo.setRowCount(0);
 
-            for (Alumno alu : Insc) {
+        for (Alumno alu : Insc) {
 
-                modelo.addRow(new Object[]{alu.getIdAlumno(),
-                    alu.getDni(), alu.getNombre(), alu.getApellido()});
-              
-            }        
+            modelo.addRow(new Object[]{alu.getIdAlumno(),
+                alu.getDni(), alu.getNombre(), alu.getApellido()});
+
+        }
     }
 }

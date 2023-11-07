@@ -16,11 +16,11 @@ import universidadejemplo.Entidades.Materia;
 public class InscripcionData {
     
     private Connection con=null;
-    private MateriaData matData;
-    private AlumnoData aluData;
-    private AlumnoData ad=new AlumnoData();
-    private MateriaData md=new MateriaData();
-
+    private Alumno alu = new Alumno();
+    private Materia mat = new Materia();
+    private MateriaData md = new MateriaData();
+    private AlumnoData ad = new AlumnoData();
+    
     public InscripcionData() {
         
         con = Conexion.getConexion();
@@ -64,22 +64,24 @@ public class InscripcionData {
         
         ArrayList<Inscripcion> inscripcionList = new ArrayList<>();
         
-            String sql="SELECT * FROM inscripcion WHERE 1";
+            String sql="SELECT * FROM inscripcion";
                 
         try {
 
             PreparedStatement ps;
             ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = ps.executeQuery();
-
+          
             while (rs.next()) {
 
-                Inscripcion inscripcion = new Inscripcion();
-                inscripcion.setIdInscripcion(rs.getInt("IdInscripcion"));
-                inscripcion.setNota(rs.getDouble("Nota"));
-                inscripcion.getAlumno().setIdAlumno(rs.getInt("IdAlumno"));
-                inscripcion.getMateria().setIdMateria(rs.getInt("IdMateria"));
-                inscripcionList.add(inscripcion);
+                Inscripcion ins = new Inscripcion();
+                ins.setIdInscripcion(rs.getInt("IdInscripto"));
+                ins.setNota(rs.getDouble("Nota"));
+                alu = ad.buscarAlumno(rs.getInt("idAlumno"));
+                mat = md.buscarMateria(rs.getInt("idMateria"));
+                ins.setAlumno(alu);
+                ins.setMateria(mat);
+                inscripcionList.add(ins);
 
             }
 
@@ -109,8 +111,8 @@ public class InscripcionData {
                 
                 Inscripcion insc=new Inscripcion();
                 insc.setIdInscripcion(rs.getInt("idInscripto"));
-                Alumno alu=ad.buscarAlumno(rs.getInt("idAlumno"));
-                Materia mat=md.buscarMateria(rs.getInt("idMateria"));
+                alu=ad.buscarAlumno(rs.getInt("idAlumno"));
+                mat=md.buscarMateria(rs.getInt("idMateria"));
                 insc.setAlumno(alu);
                 insc.setMateria(mat);
                 insc.setNota(rs.getDouble("nota"));

@@ -20,7 +20,6 @@ public class Conexion {
         
     }
     
-    
     public static  Connection getConexion(){
         
         if (connection == null) {
@@ -34,15 +33,14 @@ public class Conexion {
 
             } catch (ClassNotFoundException ex) {
                
-                JOptionPane.showMessageDialog(null, "Error al cargar los Drives: "+ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Error al cargar los Drivers: "+ex.getMessage());
             
             } catch (SQLException ex) {
                 
                 JOptionPane.showMessageDialog(null, "Error a Conectarse a la Base Datos"+ex.getMessage());
             
-            }
-        
-    }
+            } 
+        }
         
         return connection;
     

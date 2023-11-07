@@ -11,8 +11,11 @@ public class universidadejemplo {
 
     public static void main(String[] args) {
         
-//        InscripcionData id = new InscripcionData();
+        InscripcionData id = new InscripcionData();
+        
+//        id.ObtenerInscripciones();
 //        AlumnoData ad= new AlumnoData();
+//        System.out.println(id.ObtenerInscripciones());
 //        MateriaData md = new MateriaData();
 //        System.out.println(md.buscarMateria(1));
 //        List<Alumno> lista =id.obtenerAlumnosXMateria(2);

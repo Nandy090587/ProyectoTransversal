@@ -48,15 +48,13 @@ public class AlumnoData {
             
             JOptionPane.showMessageDialog(null, "Error  al acceder a la tabla alumno " + ex.getMessage());
         
-        }
-        
+        }     
     }
     
     public void modificarAlumno(Alumno alumno){
         
         String sql="UPDATE alumno SET apellido= ?, nombre= ?, fechaNacimiento= ?, estado= ? WHERE idAlumno = ?";
                 
-        
         try {
             
             PreparedStatement ps= con.prepareStatement(sql);
@@ -86,7 +84,7 @@ public class AlumnoData {
     
     public void eliminarAlumno(int id) {
 
-        String sql = "UPDate alumno SET estado = 0 WHERE idAlumno = ?";
+        String sql = "UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
 
         try {
 
@@ -95,10 +93,10 @@ public class AlumnoData {
             int exito = ps.executeUpdate();
 
         } catch (SQLException ex) {
+            
             JOptionPane.showMessageDialog(null, " Error al Eliminar la tabla" + ex.getMessage());
 
         }
-
     }
     
     public Alumno buscarAlumno(int id){
